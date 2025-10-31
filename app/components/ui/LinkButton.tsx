@@ -19,7 +19,7 @@ export default function LinkButton({
   return (
     <a
       href={href}
-      className={`rounded-xl bg-bridge-blue text-white px-5 py-3 shadow-bridge transition-[opacity,box-shadow,transform] duration-300 ease-out hover:shadow-bridge-hover hover:opacity-95 hover:translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-bridge-blue-light focus:ring-offset-2 ${className}`}
+      className={`inline-block rounded-xl bg-bridge-blue text-white px-6 py-3 font-medium shadow-md transition-all duration-300 ease-out hover:shadow-xl hover:shadow-bridge-blue/20 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-bridge-blue-light focus:ring-offset-2 ${className}`}
       aria-label={ariaLabel}
     >
       {children}

@@ -71,6 +71,14 @@ You are an expert in TypeScript, Node.js, Next.js App Router, React, Supabase, S
 
 ## UI/UX Development
 
+### Typography
+- **Primary Font**: Barlow Condensed (Google Font)
+  - Use for all text across the application
+  - Available weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)
+  - CSS Variable: `--font-barlow-condensed`
+  - Rationale: Modern, slim, professional sans-serif with slightly rounded letterforms that balance sophistication with approachability
+  - Perfect for busy professionals - space-efficient while maintaining excellent readability
+
 ### Component Libraries
 - Primary: Shadcn UI + Radix UI for component architecture
 - Styling: Tailwind CSS for layout, spacing, and utilities
@@ -261,7 +269,7 @@ This repository contains the **landing page and waitlist signup** for Bridge. We
 - **Success/Error**: Form validation, status indicators
 
 ### Visual Identity
-- **Typography**: Inter font family or system UI fonts (-apple-system, BlinkMacSystemFont, "Segoe UI")
+- **Typography**: Barlow Condensed (Google Font) - A modern, slim, professional sans-serif with slightly rounded letterforms that balance sophistication with approachability. Available weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold).
 - **Logo**: Text-only "Bridge" for now (use Primary gradient: Light Sky → Sky Blue → Deep Sky)
 - **Spacing**: Consistent 8px grid system
 - **Border Radius**: Medium roundness (8-12px)

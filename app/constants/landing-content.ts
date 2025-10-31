@@ -3,12 +3,6 @@
  * Centralized data for sections, features, and copy
  */
 
-export interface StepItem {
-  num: number;
-  title: string;
-  desc: string;
-}
-
 export interface FeatureItem {
   icon: string;
   title: string;
@@ -22,28 +16,8 @@ export interface NavLink {
 
 // Navigation links
 export const NAV_LINKS: NavLink[] = [
-  { href: "#how", label: "How it works" },
   { href: "#why", label: "Why Bridge" },
-  { href: "#waitlist", label: "Join waitlist" },
-];
-
-// How it works steps
-export const HOW_IT_WORKS_STEPS: StepItem[] = [
-  {
-    num: 1,
-    title: "Join the community",
-    desc: "Sign up and complete your profile. Share what matters to you and what you're looking for in a partner.",
-  },
-  {
-    num: 2,
-    title: "Get matched",
-    desc: "Receive one thoughtfully curated match at a time based on real compatibility and community validation.",
-  },
-  {
-    num: 3,
-    title: "Connect meaningfully",
-    desc: "No endless swiping. Just quality conversations with intention and a 3-day window to connect.",
-  },
+  { href: "#perks", label: "Founding Member Benefits" },
 ];
 
 // Why Bridge features
@@ -67,11 +41,6 @@ export const WHY_BRIDGE_FEATURES: FeatureItem[] = [
 
 // Section titles and descriptions
 export const SECTIONS = {
-  HOW: {
-    id: "how",
-    title: "How it works",
-    description: "Three simple steps to meaningful connections",
-  },
   WHY: {
     id: "why",
     title: "Why Bridge",
@@ -80,7 +49,7 @@ export const SECTIONS = {
   WAITLIST: {
     id: "waitlist",
     title: "Join the waitlist",
-    description: "Be among the first to experience thoughtful dating in NYC.",
+    description: "Be among the first to experience thoughtful dating built for busy professionals in NYC.",
   },
 } as const;
 
@@ -89,3 +58,66 @@ export const FOOTER = {
   brandName: "Bridge",
   copyright: "© 2025 Bridge. Dating for busy professionals.",
 } as const;
+
+// FAQ Section
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export const FAQ_ITEMS: FAQItem[] = [
+  {
+    question: "When does Bridge launch?",
+    answer: "Bridge opens to founding members on March 1, 2025. Waitlist members will receive early access invites based on their signup order.",
+  },
+  {
+    question: "How much does Bridge cost?",
+    answer: "After your free year, Bridge is $19/month. Founding members keep their 1 year free benefit—that's $228 in value.",
+  },
+  {
+    question: "How does matching work?",
+    answer: "Every Sunday at 9 AM, you'll receive one thoughtfully curated match based on compatibility, preferences, and community validation. You have 3 days to connect before the next match.",
+  },
+  {
+    question: "Who is Bridge for?",
+    answer: "Bridge is designed for busy NYC professionals aged 22-30 in finance, consulting, medicine, law, and tech who value intentional dating over endless swiping.",
+  },
+  {
+    question: "What makes Bridge different?",
+    answer: "Unlike other apps, Bridge delivers one quality match per week—not endless profiles. We combine algorithmic matching with community insight for better compatibility.",
+  },
+  {
+    question: "Is there a refund policy?",
+    answer: "Your first year is completely free. After that, you can cancel anytime with no penalty. We're confident you'll love the Bridge experience.",
+  },
+];
+
+// Founding Member Perks
+export interface PerkItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export const FOUNDING_MEMBER_PERKS: PerkItem[] = [
+  {
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    title: "1 Year Free",
+    description: "Full access to Bridge for 12 months at no cost. That's $228 in value.",
+  },
+  {
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    title: "Priority Matching",
+    description: "Be first in line to receive curated matches every week.",
+  },
+  {
+    icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+    title: "Founding Member Badge",
+    description: "Stand out with an exclusive badge on your profile.",
+  },
+  {
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    title: "Exclusive Events",
+    description: "Invites to quarterly mixers and community gatherings.",
+  },
+];

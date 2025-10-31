@@ -2,11 +2,12 @@ import Header from "@/app/components/header/Header";
 import StickySubnav from "@/app/components/nav/StickySubnav";
 import Hero from "@/app/components/hero/Hero";
 import Section from "@/app/components/sections/Section";
-import StepCard from "@/app/components/cards/StepCard";
-import FeatureCard from "@/app/components/cards/FeatureCard";
+import WhyBridgeSection from "@/app/components/sections/WhyBridgeSection";
+import PerksSection from "@/app/components/sections/PerksSection";
+import FAQSection from "@/app/components/sections/FAQSection";
+import WaitlistForm from "@/app/components/forms/WaitlistForm";
+import ScrollToTop from "@/app/components/ScrollToTop";
 import {
-  HOW_IT_WORKS_STEPS,
-  WHY_BRIDGE_FEATURES,
   SECTIONS,
   FOOTER,
 } from "@/app/constants/landing-content";
@@ -14,66 +15,37 @@ import {
 export default function HomePage() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <main className="min-h-dvh">
         <StickySubnav />
         <Hero />
 
-        {/* Keep "How it works" below the fold */}
-        <Section
-          id={SECTIONS.HOW.id}
-          title={SECTIONS.HOW.title}
-          description={SECTIONS.HOW.description}
-        >
-          <div className="grid md:grid-cols-3 gap-8">
-            {HOW_IT_WORKS_STEPS.map((step) => (
-              <StepCard key={step.num} step={step} />
-            ))}
-          </div>
-        </Section>
+        <WhyBridgeSection />
 
-        <Section
-          id={SECTIONS.WHY.id}
-          title={SECTIONS.WHY.title}
-          description={SECTIONS.WHY.description}
-        >
-          <div className="grid md:grid-cols-3 gap-6">
-            {WHY_BRIDGE_FEATURES.map((feature, idx) => (
-              <FeatureCard key={idx} feature={feature} />
-            ))}
-          </div>
-        </Section>
+        {/* Founding Member Perks Section */}
+        <PerksSection backgroundColor="var(--color-bridge-gradient-3)" />
+
+        {/* FAQ Section */}
+        <FAQSection backgroundColor="var(--color-bridge-gradient-4)" />
 
         <Section
           id={SECTIONS.WAITLIST.id}
           title={SECTIONS.WAITLIST.title}
           description={SECTIONS.WAITLIST.description}
           className="text-center"
+          backgroundColor="var(--color-bridge-gradient-5)"
         >
-          <div className="max-w-md mx-auto bg-bridge-surface border border-bridge-border rounded-2xl p-6 shadow-bridge">
-            <p className="text-bridge-text mb-4">
-              Simple email form placeholder
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                required
-                placeholder="you@example.com"
-                className="flex-1 rounded-xl border border-bridge-border bg-white/90 px-4 py-3 outline-none focus:ring-2 focus:ring-bridge-blue-light"
-              />
-              <button
-                type="submit"
-                className="rounded-xl bg-bridge-blue text-white px-5 py-3 shadow-bridge transition-[opacity,box-shadow,transform] duration-300 ease-out hover:shadow-bridge-hover hover:opacity-95 hover:translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-bridge-blue-light focus:ring-offset-2"
-              >
-                Join waitlist
-              </button>
-            </form>
-          </div>
+          <WaitlistForm showSocialProof={false} />
+          <p className="mt-6 text-sm text-bridge-text-muted">
+            By joining, you'll secure your founding member benefits and priority matching.
+          </p>
         </Section>
 
         {/* Footer */}
         <footer
-          className="border-t border-bridge-border bg-bridge-background px-6 py-16"
+          className="border-t border-bridge-border px-6 py-16"
+          style={{ backgroundColor: "var(--color-bridge-gradient-5)" }}
           aria-label="Site footer"
         >
           <div className="mx-auto max-w-6xl">

@@ -2,10 +2,12 @@ import React from "react";
 
 interface SectionProps {
   id: string;
-  title: string;
+  title: string | React.ReactNode;
   description?: string;
   children: React.ReactNode;
   className?: string;
+  variant?: "default" | "alternate";
+  backgroundColor?: string;
 }
 
 /**
@@ -18,22 +20,33 @@ export default function Section({
   description,
   children,
   className = "",
+  variant = "default",
+  backgroundColor,
 }: SectionProps) {
+  const bgClass = backgroundColor
+    ? ""
+    : variant === "alternate"
+      ? "bg-bridge-background-alt"
+      : "bg-bridge-background";
+
   return (
     <section
       id={id}
-      className={`bg-bridge-background py-20 md:py-28 ${className}`}
+      className={`${bgClass} py-24 md:py-32 ${className}`}
+      style={backgroundColor ? { backgroundColor } : undefined}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl md:text-5xl font-semibold text-bridge-blue mb-4">
+        <h2 className="text-3xl md:text-5xl font-semibold text-bridge-blue mb-4 opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
           {title}
         </h2>
         {description && (
-          <p className="text-bridge-text-muted max-w-prose mb-12">
+          <p className="text-bridge-text-muted max-w-prose mb-12 opacity-0 animate-[fadeIn_0.6s_ease-out_0.2s_forwards]">
             {description}
           </p>
         )}
-        {children}
+        <div className="opacity-0 animate-[fadeIn_0.6s_ease-out_0.3s_forwards]">
+          {children}
+        </div>
       </div>
     </section>
   );

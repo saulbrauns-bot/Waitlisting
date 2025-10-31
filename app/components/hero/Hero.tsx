@@ -1,120 +1,151 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import TestimonialsConveyor from "@/app/components/testimonials/TestimonialsConveyor";
-import LinkButton from "@/app/components/ui/LinkButton";
+import React, { useCallback, useEffect, useState } from "react";
+import { WavyBackground } from "@/components/ui/wavy-background";
+import TypingText from "@/app/components/hero/TypingText";
+import { prefersReducedMotion } from "@/app/lib/animations";
 
-const LINE1_FULL = "Dating for busy";
-const LINE2_FULL = "professionals";
-const TYPING_INTERVAL_MS = 70;
+const HERO_LINE_1 = "Busy People";
+const HERO_LINE_2 = "for Busy People";
 
 export default function Hero() {
-
-  const [line1, setLine1] = useState("");
-  const [line2, setLine2] = useState("");
-  const [reduced, setReduced] = useState(false);
+  const [startLine2, setStartLine2] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(media.matches);
-
-    const handler = () => setReduced(media.matches);
-    media.addEventListener?.("change", handler);
-
-    if (media.matches) {
-      // Instant display for reduced motion
-      setLine1(LINE1_FULL);
-      setLine2(LINE2_FULL);
-      return () => media.removeEventListener?.("change", handler);
+    // For users with reduced motion, show everything immediately
+    if (prefersReducedMotion()) {
+      setStartLine2(true);
+      setShowContent(true);
     }
-
-    // Typing animation - Line 1 first
-    let i = 0;
-    const line1Interval = setInterval(() => {
-      i++;
-      setLine1(LINE1_FULL.slice(0, i));
-      if (i >= LINE1_FULL.length) {
-        clearInterval(line1Interval);
-
-        // Start Line 2 after Line 1 completes
-        let j = 0;
-        const line2Interval = setInterval(() => {
-          j++;
-          setLine2(LINE2_FULL.slice(0, j));
-          if (j >= LINE2_FULL.length) {
-            clearInterval(line2Interval);
-          }
-        }, TYPING_INTERVAL_MS);
-      }
-    }, TYPING_INTERVAL_MS);
-
-    return () => {
-      clearInterval(line1Interval);
-      media.removeEventListener?.("change", handler);
-    };
   }, []);
 
-  // Determine which line should show the caret
-  const showCaretLine1 = !reduced && line1.length < LINE1_FULL.length;
-  const showCaretLine2 = !reduced && line1.length === LINE1_FULL.length && line2.length < LINE2_FULL.length;
+  const handleLine1Complete = useCallback(() => {
+    // Start typing line 2 immediately after line 1 completes
+    setStartLine2(true);
+  }, []);
+
+  const handleLine2Complete = useCallback(() => {
+    // Show rest of content after line 2 completes
+    setTimeout(() => setShowContent(true), 300);
+  }, []);
 
   return (
-    <section className="bg-bridge-background bg-grain">
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-        {/* Left column */}
-        <div>
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-bridge-text">
-            <span className="inline-flex items-end">
-              {line1}
-              {showCaretLine1 && (
-                <span
-                  className="w-[2px] h-[1em] bg-bridge-text ml-1 inline-block align-bottom animate-[caret_1s_steps(1)_infinite]"
-                  aria-hidden="true"
-                />
-              )}
-            </span>
+    <section className="relative overflow-hidden min-h-screen flex flex-col">
+      {/* Wavy Background Effect */}
+      <WavyBackground
+        containerClassName="absolute inset-0"
+        colors={["#4A90E2", "#B3D4FF", "#1E6BD6"]}
+        waveWidth={70}
+        backgroundFill="#FEFEFE"
+        blur={10}
+        speed="slow"
+        waveOpacity={0.15}
+        className="absolute inset-0"
+      />
+
+      <div className="max-w-4xl mx-auto px-6 md:px-8 py-20 md:py-32 flex-1 flex flex-col items-center justify-center text-center relative z-20">
+        {/* Centered hero content */}
+        <div className="w-full">
+          <h1
+            className="text-5xl md:text-7xl font-semibold leading-tight text-bridge-text mb-8"
+            style={{
+              textShadow: '0 0 20px rgba(26, 26, 26, 0.15), 0 2px 8px rgba(26, 26, 26, 0.12), 0 4px 12px rgba(26, 26, 26, 0.08)'
+            }}
+          >
+            <TypingText
+              text={HERO_LINE_1}
+              onComplete={handleLine1Complete}
+              delay={300}
+              shouldStart={true}
+            />
             <br />
-            <span className="text-bridge-blue inline-flex items-end">
-              {line2}
-              {showCaretLine2 && (
-                <span
-                  className="w-[2px] h-[1em] bg-bridge-blue ml-1 inline-block align-bottom animate-[caret_1s_steps(1)_infinite]"
-                  aria-hidden="true"
-                />
-              )}
-            </span>
+            <TypingText
+              text={HERO_LINE_2}
+              onComplete={handleLine2Complete}
+              delay={0}
+              shouldStart={startLine2}
+            />
           </h1>
 
-          <p className="mt-4 text-lg md:text-xl text-bridge-text-muted max-w-prose">
-            One curated match at a time. Designed for people who value their time.
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <LinkButton href="#waitlist">Join waitlist</LinkButton>
-
-            <span
-              className="inline-flex items-center gap-2 rounded-full bg-bridge-surface border border-bridge-border px-3 py-1.5 text-sm text-bridge-text"
-              aria-label="Over five hundred professionals on the list"
+          {/* Content that appears after typing */}
+          <div
+            className={`transition-all duration-700 ${
+              showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <p
+              className="text-xl md:text-2xl text-bridge-text-secondary max-w-2xl mx-auto mb-10 font-medium"
+              style={{
+                textShadow: '0 1px 3px rgba(74, 85, 104, 0.08), 0 2px 6px rgba(74, 85, 104, 0.05)'
+              }}
             >
-              <svg
-                className="h-4 w-4 text-bridge-blue"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
+              One curated match. Real connection.<br />
+              Thoughtful dating that takes just minutes a day.
+            </p>
+
+            {/* Join Waitlist Button - Wider to match box with animated gradient swoop */}
+            <div className="mb-10 max-w-3xl mx-auto w-full px-4">
+              <a
+                href="#waitlist"
+                className="group relative flex items-center justify-center rounded-xl bg-bridge-blue text-white w-full py-3.5 text-base font-semibold overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-bridge-blue focus:ring-offset-2"
+                style={{
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                  transition: 'all 0.3s ease-out, box-shadow 0.3s ease-out',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = `
+                    0 0 0 1px rgba(74, 144, 226, 0.5),
+                    0 0 20px rgba(74, 144, 226, 0.4),
+                    0 0 40px rgba(74, 144, 226, 0.3),
+                    0 20px 40px -10px rgba(30, 107, 214, 0.4)
+                  `;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+                }}
               >
-                <circle cx="12" cy="12" r="8" />
-              </svg>
-              <span>
-                <span className="font-medium text-bridge-blue">500+</span>{" "}
-                professionals
-              </span>
-            </span>
+                {/* Swooping gradient overlay that moves left to right */}
+                <span
+                  className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)',
+                  }}
+                ></span>
+
+                {/* Button text */}
+                <span className="relative z-10">Join Waitlist</span>
+              </a>
+            </div>
           </div>
         </div>
-
-        {/* Right column */}
-        <TestimonialsConveyor />
       </div>
+
+      {/* Scroll cue indicator */}
+      {showContent && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-0 animate-[fadeIn_0.6s_ease-out_0.5s_forwards]">
+          <a
+            href="#testimonials"
+            className="flex flex-col items-center gap-1 text-bridge-text-muted hover:text-bridge-blue transition-colors"
+            aria-label="Scroll to learn more"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </a>
+        </div>
+      )}
     </section>
   );
 }
