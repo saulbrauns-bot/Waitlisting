@@ -234,10 +234,35 @@ This repository contains the **landing page and waitlist signup** for Bridge. We
 
 ## Design System
 
+### Bridge Brand Color Palette
+
+| Role                   | Name       | Hex       | CSS Variable              | Description                                                            |
+| ---------------------- | ---------- | --------- | ------------------------- | ---------------------------------------------------------------------- |
+| **Primary**            | Sky Blue   | `#4A90E2` | `--color-bridge-primary`  | The signature Bridge hue — calm, intelligent, evokes clarity and trust |
+| **Primary Light**      | Light Sky  | `#B3D4FF` | `--color-bridge-primary-light` | Used for hover, focus, or backgrounds with subtle energy     |
+| **Primary Dark**       | Deep Sky   | `#1E6BD6` | `--color-bridge-primary-dark` | For call-to-action emphasis, darker buttons, or hero gradients  |
+| **Accent**             | Warm Sand  | `#EBD8B7` | `--color-bridge-accent`   | Soft contrast accent — brings warmth and balance to cool tones         |
+| **Neutral Background** | Off White  | `#F9FAFB` | `--color-bridge-neutral-bg` | Clean backdrop that keeps focus on content                       |
+| **Surface**            | Mist Gray  | `#F1F3F5` | `--color-bridge-surface`  | Used for cards, modals, and elevated containers                        |
+| **Border**             | Cloud Gray | `#D6D9DE` | `--color-bridge-border`   | Light, non-distracting borders for inputs or containers                |
+| **Text Primary**       | Charcoal   | `#1A1A1A` | `--color-bridge-text-primary` | High-contrast, professional typography color                   |
+| **Text Secondary**     | Slate      | `#4A5568` | `--color-bridge-text-secondary` | Used for subtitles, muted labels, or secondary info          |
+| **Success**            | Emerald    | `#16A34A` | `--color-bridge-success`  | Positive, trustworthy feedback color                                   |
+| **Error**              | Rose       | `#DC2626` | `--color-bridge-error`    | Clean red tone for validation errors or warnings                       |
+
+### Color Usage Guidelines
+- **Primary (Sky Blue)**: Use for all CTAs, interactive elements, and brand moments
+- **Primary Light**: Hover states, focus rings, light backgrounds
+- **Primary Dark**: Emphasized buttons, important actions, hero gradients
+- **Accent (Warm Sand)**: Subtle background overlays, secondary highlights (use sparingly)
+- **Neutral Background**: Page backgrounds, section separators
+- **Surface**: Card backgrounds, modal containers, elevated surfaces
+- **Charcoal + Slate**: Text hierarchy — Charcoal for headings, Slate for descriptions
+- **Success/Error**: Form validation, status indicators
+
 ### Visual Identity
-- **Color Palette**: White, slate gray (#475569, #64748b, #94a3b8), soft sky blue accents (#0ea5e9, #38bdf8)
 - **Typography**: Inter font family or system UI fonts (-apple-system, BlinkMacSystemFont, "Segoe UI")
-- **Logo**: Text-only "Bridge" for now
+- **Logo**: Text-only "Bridge" for now (use Primary gradient: Light Sky → Sky Blue → Deep Sky)
 - **Spacing**: Consistent 8px grid system
 - **Border Radius**: Medium roundness (8-12px)
 
@@ -325,4 +350,8 @@ This repository contains the **landing page and waitlist signup** for Bridge. We
 
 ---
 
-**For full Bridge product specification and future development context, see PRODUCT_SPEC.md**
+## Reference Documents
+
+- **PRODUCT_SPEC.md** - Full Bridge product specification and future development context
+- **UI_GUIDELINES.md** - Comprehensive UI/UX design standards and best practices for the landing page
+- **CLAUDE.md** (this file) - Development standards and project configuration
