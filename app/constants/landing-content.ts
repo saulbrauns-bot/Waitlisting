@@ -23,19 +23,24 @@ export const NAV_LINKS: NavLink[] = [
 // Why Bridge features
 export const WHY_BRIDGE_FEATURES: FeatureItem[] = [
   {
-    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
-    title: "Time-respectful",
-    desc: "One curated match at a time — not endless scrolling.",
-  },
-  {
-    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-    title: "Community-validated",
-    desc: "Compatibility informed by real human insight.",
-  },
-  {
     icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    title: "Built for professionals",
-    desc: "Designed for people who value intention over volume.",
+    title: "Built for busy people",
+    desc: "Designed for people with full lives to meet others who get it.",
+  },
+  {
+    icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+    title: "Curated, not crowded",
+    desc: "Every match is chosen with care, powered by AI and refined through real human insight.",
+  },
+  {
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+    title: "Five minutes a day",
+    desc: "Because meaningful connection shouldn't feel like another job.",
+  },
+  {
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    title: "We Match Better Together",
+    desc: "A connected community where friends and users help each other match.",
   },
 ];
 
