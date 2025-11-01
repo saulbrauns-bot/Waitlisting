@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import SocialProofBadge from "@/app/components/ui/SocialProofBadge";
 import FormInput from "@/app/components/ui/FormInput";
+import FormSelect from "@/app/components/ui/FormSelect";
 import Button from "@/app/components/ui/Button";
 
 interface WaitlistFormProps {
@@ -15,6 +16,7 @@ interface FormData {
   lastName: string;
   email: string;
   phone: string;
+  city: string;
 }
 
 /**
@@ -30,6 +32,7 @@ export default function WaitlistForm({
     lastName: "",
     email: "",
     phone: "",
+    city: "New York City",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -39,7 +42,9 @@ export default function WaitlistForm({
     setSubmitted(true);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -48,7 +53,7 @@ export default function WaitlistForm({
 
   if (submitted) {
     return (
-      <div className="text-center space-y-4 p-6 bg-white/95 rounded-2xl border border-bridge-border shadow-lg">
+      <div className="text-center space-y-4 p-6 bg-white/95 rounded-xl border border-bridge-border shadow-lg">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-bridge-success/10">
           <svg
             className="h-7 w-7 text-bridge-success"
@@ -99,16 +104,16 @@ export default function WaitlistForm({
   return (
     <div className="max-w-lg mx-auto">
       {showSocialProof && (
-        <div className="mb-6 flex justify-center">
+        <div className="mb-8 flex justify-center">
           <SocialProofBadge
-            count="500+"
-            label="professionals waiting for thoughtful dating in NYC"
+            count="1,000+"
+            label="founding members"
             className="text-sm"
           />
         </div>
       )}
 
-      <div className="bg-white/95 border border-bridge-border rounded-2xl p-8 shadow-lg">
+      <div className="bg-white/95 border border-bridge-border rounded-xl p-8 shadow-lg">
         <p className="text-center text-bridge-text-muted mb-6 text-sm">
           Be among the first to experience thoughtful dating in NYC
         </p>
@@ -148,9 +153,25 @@ export default function WaitlistForm({
             onChange={handleChange}
             placeholder="Phone number"
           />
+          <div>
+            <FormSelect
+              name="city"
+              required
+              value={formData.city}
+              onChange={handleChange}
+              options={[{ value: "New York City", label: "New York City" }]}
+              disabled
+            />
+            <p className="mt-1.5 text-xs text-bridge-text-muted text-center">
+              More cities coming soon
+            </p>
+          </div>
           <Button type="submit" fullWidth>
-            Join waitlist
+            Claim your founding member spot
           </Button>
+          <p className="text-xs text-bridge-text-muted text-center pt-2">
+            We'll only notify you when launching and to claim your benefits. No spam.
+          </p>
         </form>
       </div>
     </div>

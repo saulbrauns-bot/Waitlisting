@@ -1,5 +1,5 @@
 import React from "react";
-import { buttonPrimaryClasses } from "@/app/lib/styles";
+import { buttonPrimaryClasses, buttonSecondaryClasses } from "@/app/lib/styles";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
@@ -9,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 /**
  * Reusable button component with consistent styling
+ * Supports primary (Sky Blue CTA) and secondary (neutral border) variants per CLAUDE.md and UI_GUIDELINES.md
  */
 export default function Button({
   variant = "primary",
@@ -17,7 +18,7 @@ export default function Button({
   children,
   ...props
 }: ButtonProps) {
-  const baseClasses = variant === "primary" ? buttonPrimaryClasses : "";
+  const baseClasses = variant === "primary" ? buttonPrimaryClasses : buttonSecondaryClasses;
   const widthClass = fullWidth ? "w-full" : "";
   const combinedClasses = `${baseClasses} ${widthClass} ${className}`.trim();
 

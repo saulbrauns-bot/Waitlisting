@@ -174,8 +174,9 @@ This repository contains the **landing page and waitlist signup** for Bridge. We
 ## Landing Page Structure
 
 ### 1. Hero Section
-- **Headline**: "Dating for busy professionals"
-- **Subheadline**: "One curated match at a time. No swiping. No noise."
+- **Headline**: "Busy People for Busy People"
+- **Subheadline**: "One curated match. Real connection.
+Thoughtful dating that takes just minutes a day."
 - **Visual**: Clean, minimal design with subtle abstract shapes (no stock couples)
 - **Primary CTA**: Join the waitlist (button)
 
@@ -345,7 +346,7 @@ This repository contains the **landing page and waitlist signup** for Bridge. We
 ## Primary Goal
 
 **One Action**: Get visitors to join the waitlist
-**One Message**: Bridge saves time by delivering one high-quality match at a time for busy professionals
+**One Message**: Bridge saves time by delivering one high-quality match at a time so busy NYC people can meet other busy NYC people
 
 ## Development Notes
 

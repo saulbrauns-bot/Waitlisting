@@ -19,9 +19,9 @@ export default function StepCard({ step }: StepCardProps) {
       <div className="absolute left-0 top-8 md:hidden h-3 w-3 rounded-full bg-bridge-blue shadow-sm" />
 
       {/* Card content */}
-      <div className="relative bg-bridge-surface border border-bridge-border rounded-2xl p-8 shadow-bridge hover:shadow-bridge-hover hover:-translate-y-[1px] transition-all duration-300 ease-out group h-full w-full">
+      <div className="relative bg-bridge-surface border border-bridge-border rounded-xl p-8 shadow-bridge hover:shadow-bridge-hover hover:-translate-y-[1px] transition-all duration-300 ease-out group h-full w-full">
         {/* Subtle hover inner glow */}
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-[inset_0_0_0_1px_rgba(60,126,219,0.1)]" />
+        <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-[inset_0_0_0_1px_rgba(60,126,219,0.1)]" />
 
         {/* Numbered badge */}
         <div className="mb-6 h-16 w-16 flex items-center justify-center rounded-full bg-gradient-to-br from-bridge-blue-light via-bridge-blue to-bridge-blue shadow-lg text-3xl font-bold text-white">

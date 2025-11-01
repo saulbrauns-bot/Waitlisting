@@ -4,7 +4,6 @@ import Hero from "@/app/components/hero/Hero";
 import Section from "@/app/components/sections/Section";
 import WhyBridgeSection from "@/app/components/sections/WhyBridgeSection";
 import PerksSection from "@/app/components/sections/PerksSection";
-import FAQSection from "@/app/components/sections/FAQSection";
 import WaitlistForm from "@/app/components/forms/WaitlistForm";
 import ScrollToTop from "@/app/components/ScrollToTop";
 import {
@@ -26,18 +25,15 @@ export default function HomePage() {
         {/* Founding Member Perks Section */}
         <PerksSection backgroundColor="var(--color-bridge-gradient-3)" />
 
-        {/* FAQ Section */}
-        <FAQSection backgroundColor="var(--color-bridge-gradient-4)" />
-
         <Section
           id={SECTIONS.WAITLIST.id}
           title={SECTIONS.WAITLIST.title}
           description={SECTIONS.WAITLIST.description}
-          className="text-center"
+          className="text-center py-24"
           backgroundColor="var(--color-bridge-gradient-5)"
         >
-          <WaitlistForm showSocialProof={false} />
-          <p className="mt-6 text-sm text-bridge-text-muted">
+          <WaitlistForm showSocialProof={true} />
+          <p className="mt-8 text-sm text-bridge-text-muted">
             By joining, you'll secure your founding member benefits and priority matching.
           </p>
         </Section>

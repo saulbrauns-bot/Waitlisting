@@ -24,17 +24,17 @@ export const NAV_LINKS: NavLink[] = [
 export const WHY_BRIDGE_FEATURES: FeatureItem[] = [
   {
     icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    title: "Built for busy people",
+    title: "Built For Busy People",
     desc: "Designed for people with full lives to meet others who get it.",
   },
   {
     icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
-    title: "Curated, not crowded",
+    title: "Curated,\nNot Crowded",
     desc: "Every match is chosen with care, powered by AI and refined through real human insight.",
   },
   {
     icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
-    title: "Five minutes a day",
+    title: "Five Minutes A Day",
     desc: "Because meaningful connection shouldn't feel like another job.",
   },
   {
@@ -108,7 +108,7 @@ export const FOUNDING_MEMBER_PERKS: PerkItem[] = [
   {
     icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     title: "1 Year Free",
-    description: "Full access to Bridge for 12 months at no cost. That's $228 in value.",
+    description: "Full access to Bridge for 12 months at no cost.",
   },
   {
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
