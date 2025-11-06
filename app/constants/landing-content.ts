@@ -17,7 +17,8 @@ export interface NavLink {
 // Navigation links
 export const NAV_LINKS: NavLink[] = [
   { href: "#why", label: "Why Bridge" },
-  { href: "#perks", label: "Founding Member Benefits" },
+  { href: "#perks", label: "Early Member Reward" },
+  { href: "#waitlist", label: "Join Waitlist" },
 ];
 
 // Why Bridge features
@@ -54,14 +55,14 @@ export const SECTIONS = {
   WAITLIST: {
     id: "waitlist",
     title: "Join the waitlist",
-    description: "Be among the first to experience thoughtful dating built for busy professionals in NYC.",
+    description: "Be among the first to experience thoughtful online dating in NYC.",
   },
 } as const;
 
 // Footer content
 export const FOOTER = {
   brandName: "Bridge",
-  copyright: "© 2025 Bridge. Dating for busy professionals.",
+  copyright: "© 2025 Bridge. Busy People for Busy People.",
 } as const;
 
 // FAQ Section
@@ -73,11 +74,11 @@ export interface FAQItem {
 export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "When does Bridge launch?",
-    answer: "Bridge opens to founding members on March 1, 2025. Waitlist members will receive early access invites based on their signup order.",
+    answer: "Bridge opens to early members on March 1, 2025. Waitlist members will receive early access invites based on their signup order.",
   },
   {
     question: "How much does Bridge cost?",
-    answer: "After your free year, Bridge is $19/month. Founding members keep their 1 year free benefit—that's $228 in value.",
+    answer: "After your free year, Bridge is $19/month. Early members keep their 1 year free benefit—that's $228 in value.",
   },
   {
     question: "How does matching work?",
@@ -97,14 +98,14 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
 ];
 
-// Founding Member Perks
+// Early Member Perks
 export interface PerkItem {
   icon: string;
   title: string;
   description: string;
 }
 
-export const FOUNDING_MEMBER_PERKS: PerkItem[] = [
+export const EARLY_MEMBER_PERKS: PerkItem[] = [
   {
     icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     title: "1 Year Free",
@@ -117,7 +118,7 @@ export const FOUNDING_MEMBER_PERKS: PerkItem[] = [
   },
   {
     icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
-    title: "Founding Member Badge",
+    title: "Early Member Badge",
     description: "Stand out with an exclusive badge on your profile.",
   },
   {

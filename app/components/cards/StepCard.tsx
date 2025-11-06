@@ -1,5 +1,10 @@
 import React from "react";
-import type { StepItem } from "@/app/constants/landing-content";
+
+interface StepItem {
+  num: number;
+  title: string;
+  desc: string;
+}
 
 interface StepCardProps {
   step: StepItem;
@@ -24,12 +29,12 @@ export default function StepCard({ step }: StepCardProps) {
         <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-[inset_0_0_0_1px_rgba(60,126,219,0.1)]" />
 
         {/* Numbered badge */}
-        <div className="mb-6 h-16 w-16 flex items-center justify-center rounded-full bg-gradient-to-br from-bridge-blue-light via-bridge-blue to-bridge-blue shadow-lg text-3xl font-bold text-white">
+        <div className="mb-6 h-16 w-16 flex items-center justify-center rounded-full bg-gradient-to-br from-bridge-blue-light via-bridge-blue to-bridge-blue shadow-lg text-3xl font-medium text-white">
           {step.num}
         </div>
 
         {/* Title aligned with badge baseline */}
-        <h3 className="text-xl md:text-2xl font-semibold text-bridge-text mb-3 leading-tight">
+        <h3 className="font-heading text-xl md:text-2xl font-semibold text-bridge-text mb-3 leading-tight">
           {step.title}
         </h3>
 

@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { WavyBackground } from "@/components/ui/wavy-background";
 import TypingText from "@/app/components/hero/TypingText";
 import { prefersReducedMotion } from "@/app/lib/animations";
+import { scrollToSection } from "@/app/lib/scroll-utils";
 
 const HERO_LINE_1 = "Busy People";
 const HERO_LINE_2 = "for Busy People";
@@ -48,7 +49,7 @@ export default function Hero() {
         {/* Centered hero content */}
         <div className="w-full">
           <h1
-            className="text-5xl md:text-7xl font-semibold leading-tight text-bridge-text mb-8"
+            className="font-heading text-5xl md:text-7xl font-bold leading-tight text-bridge-text mb-8"
             style={{
               textShadow: '0 0 20px rgba(26, 26, 26, 0.15), 0 2px 8px rgba(26, 26, 26, 0.12), 0 4px 12px rgba(26, 26, 26, 0.08)'
             }}
@@ -75,7 +76,7 @@ export default function Hero() {
             }`}
           >
             <p
-              className="text-xl md:text-2xl text-bridge-text-secondary max-w-2xl mx-auto mb-10 font-medium"
+              className="font-body text-xl md:text-2xl text-bridge-text-secondary max-w-2xl mx-auto mb-10"
               style={{
                 textShadow: '0 1px 3px rgba(74, 85, 104, 0.08), 0 2px 6px rgba(74, 85, 104, 0.05)'
               }}
@@ -88,7 +89,8 @@ export default function Hero() {
             <div className="mb-10 max-w-3xl mx-auto w-full px-4">
               <a
                 href="#waitlist"
-                className="group relative flex items-center justify-center rounded-xl bg-bridge-blue text-white w-full py-3.5 text-base font-semibold overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-bridge-blue focus:ring-offset-2"
+                onClick={scrollToSection('waitlist')}
+                className="font-body group relative flex items-center justify-center rounded-xl bg-bridge-blue text-white w-full py-3.5 text-base font-semibold overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-bridge-blue focus:ring-offset-2"
                 style={{
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                   transition: 'all 0.3s ease-out, box-shadow 0.3s ease-out',

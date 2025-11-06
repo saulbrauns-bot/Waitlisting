@@ -29,7 +29,7 @@ export default function SocialProofBadge({
         <circle cx="12" cy="12" r="9" />
       </svg>
       <span>
-        <span className="font-semibold text-bridge-blue">{count}</span>{" "}
+        <span className="font-medium text-bridge-blue">{count}</span>{" "}
         <span className="text-bridge-text">{label}</span>
       </span>
     </span>

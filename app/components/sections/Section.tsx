@@ -36,7 +36,7 @@ export default function Section({
       style={backgroundColor ? { backgroundColor } : undefined}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl md:text-5xl font-semibold text-bridge-blue mb-4 opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
+        <h2 className="font-heading text-3xl md:text-5xl font-medium text-bridge-blue mb-4 opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
           {title}
         </h2>
         {description && (

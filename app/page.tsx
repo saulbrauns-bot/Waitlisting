@@ -1,15 +1,15 @@
 import Header from "@/app/components/header/Header";
 import StickySubnav from "@/app/components/nav/StickySubnav";
 import Hero from "@/app/components/hero/Hero";
-import Section from "@/app/components/sections/Section";
 import WhyBridgeSection from "@/app/components/sections/WhyBridgeSection";
 import PerksSection from "@/app/components/sections/PerksSection";
-import WaitlistForm from "@/app/components/forms/WaitlistForm";
+import WaitlistSection from "@/app/components/sections/WaitlistSection";
 import ScrollToTop from "@/app/components/ScrollToTop";
 import {
-  SECTIONS,
   FOOTER,
 } from "@/app/constants/landing-content";
+import { IMAGE_PATHS } from "@/app/constants/image-paths";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -22,21 +22,25 @@ export default function HomePage() {
 
         <WhyBridgeSection />
 
-        {/* Founding Member Perks Section */}
+        {/* Early Member Perks Section */}
         <PerksSection backgroundColor="var(--color-bridge-gradient-3)" />
 
-        <Section
-          id={SECTIONS.WAITLIST.id}
-          title={SECTIONS.WAITLIST.title}
-          description={SECTIONS.WAITLIST.description}
-          className="text-center py-24"
-          backgroundColor="var(--color-bridge-gradient-5)"
-        >
-          <WaitlistForm showSocialProof={true} />
-          <p className="mt-8 text-sm text-bridge-text-muted">
-            By joining, you'll secure your founding member benefits and priority matching.
-          </p>
-        </Section>
+        {/* Waitlist Section with Bench Image */}
+        <div className="relative">
+          <WaitlistSection />
+
+          {/* Bench Image - positioned in bottom right corner */}
+          <div className="absolute bottom-0 right-6 w-48 md:w-64 lg:w-80 pointer-events-none">
+            <Image
+              src={IMAGE_PATHS.BENCH}
+              alt="Park bench representing connection and meeting"
+              width={400}
+              height={300}
+              className="object-contain w-full h-auto mix-blend-multiply opacity-90"
+              priority={false}
+            />
+          </div>
+        </div>
 
         {/* Footer */}
         <footer
@@ -46,8 +50,18 @@ export default function HomePage() {
         >
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col items-center gap-6">
-              <div className="text-4xl font-bold text-bridge-blue">
-                {FOOTER.brandName}
+              <div className="relative h-16 w-64">
+                <Image
+                  src="/images/BridgeLogo.png"
+                  alt="Bridge"
+                  fill
+                  className="object-contain"
+                  style={{
+                    filter: 'brightness(1.2) contrast(1.1)',
+                    mixBlendMode: 'darken'
+                  }}
+                  priority={false}
+                />
               </div>
               <p className="text-bridge-text-muted text-center">
                 {FOOTER.copyright}

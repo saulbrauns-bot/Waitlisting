@@ -78,7 +78,7 @@ export default function TypeWriter({
 
   return (
     <span
-      className={`inline-flex items-center justify-center px-3 py-1 bg-bridge-primary text-white rounded-md transition-all duration-200 ${className}`}
+      className={`inline-flex items-center justify-center px-3 py-1 bg-bridge-primary text-white rounded-md transition-all duration-200 font-body ${className}`}
     >
       <span className="inline-block whitespace-nowrap">
         {currentText}

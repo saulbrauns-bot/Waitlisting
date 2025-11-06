@@ -2,16 +2,16 @@
 
 import LetterTicker from "./LetterTicker";
 
-interface AnimatedFreeProps {
+interface AnimatedFreeTextProps {
   className?: string;
 }
 
 /**
- * AnimatedFree Component
+ * AnimatedFreeText Component
  * Displays "FREE" with letter ticker animation
  * Each letter animates in sequence with a staggered delay
  */
-export default function AnimatedFree({ className = "" }: AnimatedFreeProps) {
+export default function AnimatedFreeText({ className = "" }: AnimatedFreeTextProps) {
   const word = "FREE";
 
   return (
@@ -25,7 +25,7 @@ export default function AnimatedFree({ className = "" }: AnimatedFreeProps) {
           targetLetter={letter}
           delay={index * 200} // Stagger each letter by 200ms
           duration={800}
-          className="text-4xl md:text-6xl font-bold text-bridge-blue"
+          className="text-4xl md:text-6xl font-medium text-bridge-blue"
         />
       ))}
     </div>

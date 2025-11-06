@@ -16,7 +16,7 @@ export default function FeatureCard({ feature }: FeatureCardProps) {
       <div className={`mx-auto mb-6 ${getIconContainerClasses("lg")}`}>
         <Icon path={feature.icon} size="lg" className="text-white" />
       </div>
-      <h3 className="text-xl md:text-2xl font-semibold text-bridge-text mb-3">
+      <h3 className="font-heading text-xl md:text-2xl font-semibold text-bridge-text mb-3">
         {feature.title}
       </h3>
       <p className="text-bridge-text-muted leading-relaxed">{feature.desc}</p>

@@ -25,8 +25,7 @@ export default function LetterTicker({
 
   useEffect(() => {
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let intervalId: NodeJS.Timeout;
-    let timeoutId: NodeJS.Timeout;
+    let intervalId: NodeJS.Timeout | undefined;
 
     // Start animation after delay
     const startTimeout = setTimeout(() => {
@@ -44,15 +43,14 @@ export default function LetterTicker({
           // Settle on target letter
           setCurrentLetter(targetLetter);
           setIsAnimating(false);
-          clearInterval(intervalId);
+          if (intervalId) clearInterval(intervalId);
         }
       }, 50);
     }, delay);
 
     return () => {
       clearTimeout(startTimeout);
-      clearTimeout(timeoutId);
-      clearInterval(intervalId);
+      if (intervalId) clearInterval(intervalId);
     };
   }, [targetLetter, delay, duration]);
 

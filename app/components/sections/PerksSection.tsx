@@ -1,16 +1,17 @@
 "use client";
 
-import { FOUNDING_MEMBER_PERKS } from "@/app/constants/landing-content";
+import { EARLY_MEMBER_PERKS } from "@/app/constants/landing-content";
 import InlineIcon from "@/app/components/ui/InlineIcon";
 import { STAR_ICON_PATH } from "@/app/constants/icons";
-import AnimatedFree from "@/app/components/ui/AnimatedFree";
+import { ANIMATION_DELAYS } from "@/app/lib/animations";
+import { scrollToSection } from "@/app/lib/scroll-utils";
 
 interface PerksSectionProps {
   backgroundColor?: string;
 }
 
 /**
- * Founding Member Perks section
+ * Early Member Perks section
  * Premium membership-style layout with spotlight hero and interactive feature cards
  */
 export default function PerksSection({ backgroundColor }: PerksSectionProps) {
@@ -52,16 +53,15 @@ function SectionHeader() {
   return (
     <div className="text-center mb-16 md:mb-20">
       <ExclusiveBadge />
-      <h2 className="text-4xl md:text-6xl font-bold text-bridge-text mb-6 opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
+      <h2 className="font-heading text-4xl md:text-6xl font-bold text-bridge-text mb-6">
+        <span className="text-bridge-text">Early Member </span>
         <span className="bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue bg-clip-text text-transparent">
-          Founding Member
+          Reward
         </span>
-        <br />
-        <span className="text-bridge-text">Benefits</span>
       </h2>
-      <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.6s_ease-out_0.2s_forwards]">
+      <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
         Join the first 2,500 members and enjoy{" "}
-        <span className="font-semibold text-bridge-blue">12 months of Bridge at no cost</span>.{" "}
+        <span className="font-medium text-bridge-blue">12 months of Bridge at no cost</span>.{" "}
         Spots are limited.
       </p>
     </div>
@@ -73,9 +73,9 @@ function SectionHeader() {
  */
 function ExclusiveBadge() {
   return (
-    <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-bridge-blue/20 via-bridge-blue-dark/20 to-bridge-blue/20 border border-bridge-blue/40 mb-6 shadow-xl shadow-bridge-blue/20 backdrop-blur-sm opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
+    <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-bridge-blue/20 via-bridge-blue-dark/20 to-bridge-blue/20 border border-bridge-blue/40 mb-6 shadow-xl shadow-bridge-blue/20 backdrop-blur-sm">
       <InlineIcon path={STAR_ICON_PATH} className="text-bridge-blue animate-pulse" />
-      <span className="text-sm font-bold text-bridge-blue tracking-wider">LIMITED-TIME OFFER</span>
+      <span className="text-sm font-medium text-bridge-blue tracking-wider">LIMITED-TIME OFFER</span>
       <InlineIcon path={STAR_ICON_PATH} className="text-bridge-blue animate-pulse" />
     </div>
   );
@@ -85,10 +85,10 @@ function ExclusiveBadge() {
  * Large spotlight hero card featuring the main benefit
  */
 function SpotlightHeroCard() {
-  const heroPerk = FOUNDING_MEMBER_PERKS[0]; // "1 Year Free"
+  const heroPerk = EARLY_MEMBER_PERKS[0]; // "1 Year Free"
 
   return (
-    <div className="mb-12 md:mb-16 opacity-0 animate-[fadeIn_0.8s_ease-out_0.3s_forwards]">
+    <div className="mb-12 md:mb-16">
       <div className="relative group">
         {/* Glow effect */}
         <div className="absolute -inset-1 bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
@@ -105,7 +105,7 @@ function SpotlightHeroCard() {
               </div>
 
               <div>
-                <h3 className="text-3xl md:text-5xl font-bold text-bridge-text mb-3">
+                <h3 className="font-heading text-3xl md:text-5xl font-bold text-bridge-text mb-3">
                   {heroPerk.title}
                 </h3>
                 <p className="text-bridge-text-muted text-lg md:text-xl">
@@ -114,11 +114,17 @@ function SpotlightHeroCard() {
               </div>
             </div>
 
-            {/* Right: Animated FREE */}
+            {/* Right: Static pricing */}
             <div className="flex flex-col items-center md:items-end justify-center space-y-6">
               <div className="flex flex-col items-center md:items-end">
-                <span className="text-sm text-bridge-text-muted mb-2 font-medium">Founding Member Price</span>
-                <AnimatedFree />
+                <span className="text-sm text-bridge-text-muted mb-2 font-medium">Early Member Price</span>
+                <div
+                  className="text-6xl md:text-7xl font-medium text-transparent bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue bg-clip-text"
+                  style={{ filter: 'drop-shadow(0 0 8px rgba(74, 144, 226, 0.4))' }}
+                >
+                  FREE
+                </div>
+                <span className="text-sm text-bridge-text-muted mt-1">for 12 months</span>
               </div>
 
               <div className="flex items-center gap-3 text-sm text-bridge-text-muted">
@@ -136,18 +142,58 @@ function SpotlightHeroCard() {
 }
 
 /**
+ * Grid of additional perks (cards 2-4)
+ */
+function AdditionalPerksGrid() {
+  const additionalPerks = EARLY_MEMBER_PERKS.slice(1); // Get perks 2-4
+
+  return (
+    <div className={`grid md:grid-cols-3 gap-6 mb-12 md:mb-16 opacity-0 animate-[fadeIn_0.8s_ease-out_${ANIMATION_DELAYS.SLOW}s_forwards]`}>
+      {additionalPerks.map((perk) => (
+        <div
+          key={perk.title}
+          className="group relative"
+        >
+          {/* Subtle glow on hover */}
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-bridge-blue/30 to-bridge-blue-dark/30 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {/* Card */}
+          <div className="relative bg-white border border-bridge-border rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+            {/* Icon */}
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-bridge-blue/10 to-bridge-blue-dark/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <svg className="w-7 h-7 text-bridge-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={perk.icon} />
+              </svg>
+            </div>
+
+            {/* Content */}
+            <h3 className="font-heading text-xl md:text-2xl font-semibold text-bridge-text mb-3">
+              {perk.title}
+            </h3>
+            <p className="text-bridge-text-muted leading-relaxed">
+              {perk.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/**
  * Value proposition with enhanced CTA
  */
 function ValueProposition() {
   return (
-    <div className="text-center max-w-3xl mx-auto opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards]">
+    <div className="text-center max-w-3xl mx-auto">
       {/* CTA */}
       <a
         href="#waitlist"
-        className="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue text-white px-10 py-5 font-bold text-lg shadow-2xl shadow-bridge-blue/30 transition-all duration-300 ease-out hover:shadow-3xl hover:shadow-bridge-blue/50 hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-bridge-blue-light/50 focus:ring-offset-2 relative overflow-hidden"
+        onClick={scrollToSection('waitlist')}
+        className="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue text-white px-8 py-4 font-medium text-lg shadow-2xl shadow-bridge-blue/30 transition-all duration-300 ease-out hover:shadow-3xl hover:shadow-bridge-blue/50 hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-bridge-blue-light/50 focus:ring-offset-2 relative overflow-hidden"
       >
         <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-        <span className="relative">Secure Your Founding Member Spot</span>
+        <span className="relative">Secure Your Spot</span>
         <svg className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
         </svg>

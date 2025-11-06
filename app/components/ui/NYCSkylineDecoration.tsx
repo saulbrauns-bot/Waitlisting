@@ -4,7 +4,7 @@ import React from "react";
  * NYC Skyline decoration for the Why Bridge section
  * Static decorative element with gradient fade
  */
-const NYCDecorationAceternity = React.forwardRef<HTMLDivElement>(
+const NYCSkylineDecoration = React.forwardRef<HTMLDivElement>(
   (props, ref) => {
     return (
       <div
@@ -28,6 +28,6 @@ const NYCDecorationAceternity = React.forwardRef<HTMLDivElement>(
   }
 );
 
-NYCDecorationAceternity.displayName = "NYCDecorationAceternity";
+NYCSkylineDecoration.displayName = "NYCSkylineDecoration";
 
-export default NYCDecorationAceternity;
+export default NYCSkylineDecoration;

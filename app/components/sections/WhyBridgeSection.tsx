@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import TypeWriter from "@/app/components/ui/TypeWriter";
 import BentoCard from "@/app/components/cards/BentoCard";
 import { WHY_BRIDGE_FEATURES, SECTIONS } from "@/app/constants/landing-content";
 import InlineIcon from "@/app/components/ui/InlineIcon";
 import { USERS_ICON_PATH } from "@/app/constants/icons";
-import NYCDecorationAceternity from "@/app/components/ui/NYCDecorationAceternity";
+import NYCSkylineDecoration from "@/app/components/ui/NYCSkylineDecoration";
+import { useStickyColumnHeight } from "@/app/hooks/useStickyColumnHeight";
+import { ANIMATION_DELAYS } from "@/app/lib/animations";
+import { IMAGE_PATHS } from "@/app/constants/image-paths";
 
 /**
  * Why Bridge section with modern Bento grid layout
@@ -16,41 +19,12 @@ import NYCDecorationAceternity from "@/app/components/ui/NYCDecorationAceternity
 export default function WhyBridgeSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const skylineRef = useRef<HTMLDivElement>(null);
-  const leftColumnRef = useRef<HTMLDivElement>(null);
-  const [leftColumnHeight, setLeftColumnHeight] = useState<string>("auto");
 
-  useEffect(() => {
-    const calculateHeight = () => {
-      if (!skylineRef.current || !sectionRef.current) return;
-
-      const skyline = skylineRef.current;
-      const section = sectionRef.current;
-
-      // Get bounding boxes
-      const skylineRect = skyline.getBoundingClientRect();
-      const sectionRect = section.getBoundingClientRect();
-
-      // Calculate skyline's top position relative to the section's top
-      const skylineTopFromSectionTop = skylineRect.top - sectionRect.top;
-
-      // Add 70px buffer so text stops before reaching the skyline
-      const buffer = 70;
-
-      // Set the left column height to stop at the skyline top minus buffer
-      // This constrains the sticky element's scrolling range
-      setLeftColumnHeight(`${skylineTopFromSectionTop - buffer}px`);
-    };
-
-    calculateHeight();
-    window.addEventListener('resize', calculateHeight);
-    // Add a small delay to ensure skyline is rendered
-    const timeoutId = setTimeout(calculateHeight, 100);
-
-    return () => {
-      window.removeEventListener('resize', calculateHeight);
-      clearTimeout(timeoutId);
-    };
-  }, []);
+  // Calculate sticky column height to stop before skyline
+  const leftColumnHeight = useStickyColumnHeight(sectionRef, skylineRef, {
+    buffer: 70,
+    updateDelay: 100,
+  });
 
   return (
     <>
@@ -61,16 +35,13 @@ export default function WhyBridgeSection() {
         style={{ backgroundColor: "var(--color-bridge-gradient-2)" }}
       >
         {/* NYC Skyline Decoration with Parallax */}
-        <NYCDecorationAceternity ref={skylineRef} />
+        <NYCSkylineDecoration ref={skylineRef} />
 
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           {/* Two-column grid layout */}
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-start">
             {/* Left Column: Title + Subheading - constrained height wrapper */}
-            <div
-              ref={leftColumnRef}
-              style={{ height: leftColumnHeight }}
-            >
+            <div style={{ height: leftColumnHeight }}>
               <SectionHeader />
             </div>
 
@@ -83,7 +54,7 @@ export default function WhyBridgeSection() {
                   variant="wide"
                   shadowDirection="top"
                   gradientDirection="bottom"
-                  animationDelay={0.3}
+                  animationDelay={ANIMATION_DELAYS.NORMAL}
                 />
               </div>
 
@@ -94,7 +65,7 @@ export default function WhyBridgeSection() {
                   variant="standard"
                   shadowDirection="topRight"
                   gradientDirection="topRight"
-                  animationDelay={0.4}
+                  animationDelay={ANIMATION_DELAYS.MEDIUM}
                 />
               </div>
 
@@ -105,7 +76,7 @@ export default function WhyBridgeSection() {
                   variant="standard"
                   shadowDirection="bottomLeft"
                   gradientDirection="topRight"
-                  animationDelay={0.6}
+                  animationDelay={ANIMATION_DELAYS.SLOWER}
                 />
               </div>
 
@@ -116,8 +87,8 @@ export default function WhyBridgeSection() {
                   variant="tall"
                   shadowDirection="right"
                   gradientDirection="left"
-                  animationDelay={0.5}
-                  backgroundImage="/images/bridge-bg2.png"
+                  animationDelay={ANIMATION_DELAYS.SLOW}
+                  backgroundImage={IMAGE_PATHS.BRIDGE_BG}
                   backgroundPosition="center 70%"
                 >
                   <CommunityMatchContent />
@@ -139,7 +110,7 @@ export default function WhyBridgeSection() {
 function SectionHeader() {
   return (
     <div className="space-y-6 md:sticky md:top-24 flex flex-col justify-center">
-      <h2 className="text-4xl md:text-5xl font-semibold text-bridge-text leading-tight opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
+      <h2 className="font-body text-4xl md:text-5xl font-semibold text-bridge-text leading-tight opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
         What makes Bridge
         <br />
         <TypeWriter
@@ -149,11 +120,11 @@ function SectionHeader() {
         />
       </h2>
       <div className="opacity-0 animate-[fadeIn_0.6s_ease-out_0.2s_forwards]">
-        <p className="text-lg md:text-xl text-bridge-text-muted leading-relaxed">
+        <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
           The dating experience designed for people with purpose.
         </p>
-        <p className="text-base md:text-lg text-bridge-text-muted leading-relaxed mt-2">
-          Launching in New York City in 2026.
+        <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-2">
+          Launching in <span className="text-bridge-blue">New York City</span> in 2026.
         </p>
       </div>
     </div>

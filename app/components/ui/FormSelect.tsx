@@ -3,6 +3,7 @@ import { inputClasses } from "@/app/lib/styles";
 
 interface FormSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
+  error?: string;
   options: { value: string; label: string }[];
 }
 
@@ -12,11 +13,13 @@ interface FormSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> 
  */
 export default function FormSelect({
   label,
+  error,
   className = "",
   options,
   ...props
 }: FormSelectProps) {
-  const combinedClasses = `${inputClasses} pr-10 appearance-none ${className}`;
+  const errorBorder = error ? "border-bridge-error focus:ring-bridge-error" : "";
+  const combinedClasses = `${inputClasses} pr-10 appearance-none ${errorBorder} ${className}`;
 
   const selectElement = (
     <div className="relative">
@@ -54,9 +57,17 @@ export default function FormSelect({
           {label}
         </label>
         {selectElement}
+        {error && (
+          <p className="text-xs text-bridge-error mt-1">{error}</p>
+        )}
       </div>
     );
   }
 
-  return selectElement;
+  return (
+    <>
+      {selectElement}
+      {error && <p className="text-xs text-bridge-error mt-1">{error}</p>}
+    </>
+  );
 }

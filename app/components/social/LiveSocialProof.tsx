@@ -33,7 +33,7 @@ export default function LiveSocialProof() {
   }, []);
 
   // Duplicate items for seamless infinite scroll
-  const items = [...MOCK_SIGNUPS, ...MOCK_SIGNUPS];
+  const duplicatedSignups = [...MOCK_SIGNUPS, ...MOCK_SIGNUPS];
 
   if (!isVisible) return null;
 
@@ -58,12 +58,12 @@ export default function LiveSocialProof() {
             className="flex gap-4 motion-safe:animate-[scroll_40s_linear_infinite]"
             style={{ willChange: "transform" }}
           >
-            {items.map((signup, i) => (
+            {duplicatedSignups.map((signup, i) => (
               <div
                 key={i}
                 className="flex-shrink-0 bg-white/80 backdrop-blur-sm border border-bridge-border rounded-xl px-4 py-3 flex items-center gap-3 min-w-[280px]"
               >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-bridge-blue to-bridge-blue-dark flex items-center justify-center text-white font-semibold">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-bridge-blue to-bridge-blue-dark flex items-center justify-center text-white font-medium">
                   {signup.name.charAt(0)}
                 </div>
                 <div className="flex-1">
@@ -87,15 +87,15 @@ export default function LiveSocialProof() {
         {/* Stats bar */}
         <div className="mt-6 grid grid-cols-3 gap-6">
           <div className="text-center">
-            <div className="text-2xl font-bold text-bridge-blue">500+</div>
+            <div className="text-2xl font-medium text-bridge-blue">500+</div>
             <div className="text-xs text-bridge-text-muted">Professionals</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-bridge-blue">NYC</div>
+            <div className="text-2xl font-medium text-bridge-blue">NYC</div>
             <div className="text-xs text-bridge-text-muted">Launching first</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-bridge-blue">Mar 1</div>
+            <div className="text-2xl font-medium text-bridge-blue">Mar 1</div>
             <div className="text-xs text-bridge-text-muted">Launch Date</div>
           </div>
         </div>

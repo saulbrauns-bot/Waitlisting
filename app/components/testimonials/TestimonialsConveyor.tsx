@@ -30,7 +30,7 @@ export default function TestimonialsConveyor() {
       className="bg-bridge-background border-y border-bridge-border py-12 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 mb-6">
-        <h3 className="text-xl font-semibold text-bridge-text text-center">
+        <h3 className="font-heading text-xl font-medium text-bridge-text text-center">
           What people are saying
         </h3>
       </div>

@@ -25,7 +25,7 @@ export default function FAQSection({ backgroundColor }: FAQSectionProps) {
     >
       <div className="max-w-3xl mx-auto px-6 md:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-semibold text-bridge-text mb-4">
+          <h2 className="font-heading text-3xl md:text-5xl font-medium text-bridge-text mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-bridge-text-muted text-lg">
@@ -44,7 +44,7 @@ export default function FAQSection({ backgroundColor }: FAQSectionProps) {
                 className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-bridge-blue-light focus:ring-inset"
                 aria-expanded={openIndex === index}
               >
-                <span className="text-lg font-semibold text-bridge-text pr-8">
+                <span className="text-lg font-medium text-bridge-text pr-8">
                   {item.question}
                 </span>
                 <svg

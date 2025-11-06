@@ -72,12 +72,28 @@ You are an expert in TypeScript, Node.js, Next.js App Router, React, Supabase, S
 ## UI/UX Development
 
 ### Typography
-- **Primary Font**: Barlow Condensed (Google Font)
-  - Use for all text across the application
-  - Available weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)
-  - CSS Variable: `--font-barlow-condensed`
-  - Rationale: Modern, slim, professional sans-serif with slightly rounded letterforms that balance sophistication with approachability
-  - Perfect for busy professionals - space-efficient while maintaining excellent readability
+
+Bridge uses a clean two-tier typography system that balances distinctive brand personality with optimal readability:
+
+- **Satoshi** (Headings & Wordmark)
+  - Use for: All headings (H1, H2, H3), "Bridge" wordmark, section titles, card titles, feature titles
+  - Font family: `--font-heading` or class `.font-heading`
+  - Source: Local font files (`/public/fonts/satoshi/`)
+  - Weights: 300 (Light), 400 (Regular), 500 (Medium), 700 (Bold), 900 (Black)
+  - Rationale: Modern geometric sans-serif with clean lines and excellent legibility. Provides distinctive personality for all headings and brand elements.
+
+- **Inter** (Body Text & UI)
+  - Use for: Body copy, paragraphs, labels, buttons, form inputs, navigation, all UI elements
+  - Font family: `--font-body` or class `.font-body`
+  - Source: Google Fonts (via `next/font/google`)
+  - Weights: 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)
+  - Rationale: Highly readable, optimized for screens, comprehensive character support. Perfect for body text and UI elements.
+
+**Implementation:**
+- All fonts are configured in `app/fonts.ts`
+- Font variables are applied to the `<html>` element in `app/layout.tsx`
+- Utility classes (`.font-heading`, `.font-body`) are available in Tailwind
+- Body text uses Inter by default (applied to `<body>` element)
 
 ### Component Libraries
 - Primary: Shadcn UI + Radix UI for component architecture
@@ -270,8 +286,11 @@ Thoughtful dating that takes just minutes a day."
 - **Success/Error**: Form validation, status indicators
 
 ### Visual Identity
-- **Typography**: Barlow Condensed (Google Font) - A modern, slim, professional sans-serif with slightly rounded letterforms that balance sophistication with approachability. Available weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold).
-- **Logo**: Text-only "Bridge" for now (use Primary gradient: Light Sky → Sky Blue → Deep Sky)
+- **Typography**: Two-tier system
+  - **Satoshi** (Headings & Brand) - Modern geometric sans-serif for all headings and wordmark
+  - **Inter** (Body & UI) - Highly readable, optimized for screens for all body text and UI elements
+  - See Typography section above for full details
+- **Logo**: Text-based "Bridge" wordmark using Satoshi font with Primary gradient (Light Sky → Sky Blue → Deep Sky)
 - **Spacing**: Consistent 8px grid system
 - **Border Radius**: Medium roundness (8-12px)
 
