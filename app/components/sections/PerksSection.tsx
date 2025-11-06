@@ -18,12 +18,12 @@ export default function PerksSection({ backgroundColor }: PerksSectionProps) {
   return (
     <section
       id="perks"
-      className="py-24 md:py-32 relative overflow-hidden"
+      className="py-16 md:py-24 lg:py-32 relative overflow-hidden"
       style={backgroundColor ? { backgroundColor } : { backgroundColor: "var(--color-bridge-background)" }}
     >
       <BackgroundDecoration />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative">
         <SectionHeader />
         <SpotlightHeroCard />
         <ValueProposition />
@@ -51,15 +51,15 @@ function BackgroundDecoration() {
  */
 function SectionHeader() {
   return (
-    <div className="text-center mb-16 md:mb-20">
+    <div className="text-center mb-12 md:mb-16 lg:mb-20">
       <ExclusiveBadge />
-      <h2 className="font-heading text-4xl md:text-6xl font-bold text-bridge-text mb-6">
+      <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-bridge-text mb-4 md:mb-6 px-2">
         <span className="text-bridge-text">Early Member </span>
         <span className="bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue bg-clip-text text-transparent">
           Reward
         </span>
       </h2>
-      <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+      <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-4">
         Join the first 2,500 members and enjoy{" "}
         <span className="font-medium text-bridge-blue">12 months of Bridge at no cost</span>.{" "}
         Spots are limited.
@@ -88,47 +88,47 @@ function SpotlightHeroCard() {
   const heroPerk = EARLY_MEMBER_PERKS[0]; // "1 Year Free"
 
   return (
-    <div className="mb-12 md:mb-16">
+    <div className="mb-8 md:mb-12 lg:mb-16">
       <div className="relative group">
         {/* Glow effect */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue rounded-2xl md:rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
 
         {/* Main card */}
-        <div className="relative bg-gradient-to-br from-white to-bridge-surface border-2 border-bridge-blue/30 rounded-3xl p-8 md:p-12 shadow-2xl backdrop-blur-sm overflow-hidden">
-          <div className="relative grid md:grid-cols-2 gap-8 items-center">
+        <div className="relative bg-gradient-to-br from-white to-bridge-surface border-2 border-bridge-blue/30 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl backdrop-blur-sm overflow-hidden">
+          <div className="relative grid md:grid-cols-2 gap-6 md:gap-8 items-center">
             {/* Left: Icon and value */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6">
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-bridge-blue to-bridge-blue-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-12 h-12 md:w-14 md:h-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4 md:space-y-6">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl bg-gradient-to-br from-bridge-blue to-bridge-blue-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={heroPerk.icon} />
                 </svg>
               </div>
 
               <div>
-                <h3 className="font-heading text-3xl md:text-5xl font-bold text-bridge-text mb-3">
+                <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-bridge-text mb-2 md:mb-3">
                   {heroPerk.title}
                 </h3>
-                <p className="text-bridge-text-muted text-lg md:text-xl">
+                <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl">
                   {heroPerk.description}
                 </p>
               </div>
             </div>
 
             {/* Right: Static pricing */}
-            <div className="flex flex-col items-center md:items-end justify-center space-y-6">
+            <div className="flex flex-col items-center md:items-end justify-center space-y-4 md:space-y-6">
               <div className="flex flex-col items-center md:items-end">
-                <span className="text-sm text-bridge-text-muted mb-2 font-medium">Early Member Price</span>
+                <span className="text-xs sm:text-sm text-bridge-text-muted mb-2 font-medium">Early Member Price</span>
                 <div
-                  className="text-6xl md:text-7xl font-medium text-transparent bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue bg-clip-text"
+                  className="text-5xl sm:text-6xl md:text-7xl font-medium text-transparent bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue bg-clip-text"
                   style={{ filter: 'drop-shadow(0 0 8px rgba(74, 144, 226, 0.4))' }}
                 >
                   FREE
                 </div>
-                <span className="text-sm text-bridge-text-muted mt-1">for 12 months</span>
+                <span className="text-xs sm:text-sm text-bridge-text-muted mt-1">for 12 months</span>
               </div>
 
-              <div className="flex items-center gap-3 text-sm text-bridge-text-muted">
-                <svg className="w-5 h-5 text-bridge-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="flex items-center gap-2 md:gap-3 text-xs sm:text-sm text-bridge-text-muted">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-bridge-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span>Cancel anytime with no penalty</span>

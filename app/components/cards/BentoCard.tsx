@@ -72,16 +72,16 @@ export default function BentoCard({
               <Icon path={feature.icon} size={iconSize} className="text-white" />
             </div>
             <h3
-              className={`font-heading text-xl md:text-2xl font-semibold text-bridge-text mb-2 md:mb-3 whitespace-pre-line ${
+              className={`font-heading text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-bridge-text mb-1 sm:mb-2 md:mb-3 whitespace-pre-line ${
                 textAlignment === "center" ? "text-center" : ""
-              } ${variant === "wide" ? "text-2xl md:text-3xl mb-1 md:mb-2" : ""}`}
+              } ${variant === "wide" ? "text-lg sm:text-xl md:text-2xl lg:text-3xl mb-1 md:mb-2" : ""}`}
             >
               {feature.title}
             </h3>
             <p
               className={`text-bridge-text-muted ${
                 variant === "wide" ? "leading-snug" : "leading-relaxed"
-              } text-sm md:text-base ${textAlignment === "center" ? "text-center" : ""}`}
+              } text-xs sm:text-sm md:text-base ${textAlignment === "center" ? "text-center" : ""}`}
             >
               {feature.desc}
             </p>

@@ -31,22 +31,22 @@ export default function WhyBridgeSection() {
       <section
         ref={sectionRef}
         id={SECTIONS.WHY.id}
-        className="relative py-24 md:py-32"
+        className="relative py-16 md:py-24 lg:py-32"
         style={{ backgroundColor: "var(--color-bridge-gradient-2)" }}
       >
         {/* NYC Skyline Decoration with Parallax */}
         <NYCSkylineDecoration ref={skylineRef} />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           {/* Two-column grid layout */}
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-start">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
             {/* Left Column: Title + Subheading - constrained height wrapper */}
             <div style={{ height: leftColumnHeight }}>
               <SectionHeader />
             </div>
 
             {/* Right Column: Bento Grid */}
-            <div className="grid grid-cols-2 md:grid-rows-[auto,minmax(0,1fr),minmax(0,1fr)] gap-3 md:gap-4 mt-0">
+            <div className="grid grid-cols-2 md:grid-rows-[auto,minmax(0,1fr),minmax(0,1fr)] gap-2 sm:gap-3 md:gap-4 mt-0">
               {/* Built For Busy People - Full width top (Row 1) */}
               <div className="col-span-2 self-start">
                 <BentoCard
@@ -109,8 +109,8 @@ export default function WhyBridgeSection() {
  */
 function SectionHeader() {
   return (
-    <div className="space-y-6 md:sticky md:top-24 flex flex-col justify-center">
-      <h2 className="font-body text-4xl md:text-5xl font-semibold text-bridge-text leading-tight opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
+    <div className="space-y-4 md:space-y-6 md:sticky md:top-24 flex flex-col justify-center">
+      <h2 className="font-body text-3xl sm:text-4xl md:text-5xl font-semibold text-bridge-text leading-tight opacity-0 animate-[fadeIn_0.6s_ease-out_0.1s_forwards]">
         What makes Bridge
         <br />
         <TypeWriter
@@ -120,10 +120,10 @@ function SectionHeader() {
         />
       </h2>
       <div className="opacity-0 animate-[fadeIn_0.6s_ease-out_0.2s_forwards]">
-        <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed">
           The dating experience designed for people with purpose.
         </p>
-        <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-2">
+        <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mt-2">
           Launching in <span className="text-bridge-blue">New York City</span> in 2026.
         </p>
       </div>

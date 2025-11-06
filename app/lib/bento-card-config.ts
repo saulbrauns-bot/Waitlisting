@@ -41,21 +41,21 @@ export const GRADIENT_CONFIGS: Record<BentoCardGradientDirection, string> = {
  */
 export const VARIANT_CONFIGS: Record<BentoCardVariant, BentoCardStyleConfig> = {
   wide: {
-    paddingClasses: "px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4",
+    paddingClasses: "px-3 sm:px-4 md:px-5 pt-3 sm:pt-4 md:pt-5 pb-2 sm:pb-3 md:pb-4",
     iconSize: "lg",
     iconSpacing: "mb-2 md:mb-3",
     textAlignment: "center",
   },
   standard: {
-    paddingClasses: "p-6 md:p-8",
+    paddingClasses: "p-4 sm:p-5 md:p-6 lg:p-8",
     iconSize: "md",
-    iconSpacing: "mb-4 md:mb-6",
+    iconSpacing: "mb-3 sm:mb-4 md:mb-6",
     textAlignment: "left",
   },
   tall: {
-    paddingClasses: "p-6 md:p-8",
+    paddingClasses: "p-4 sm:p-5 md:p-6 lg:p-8",
     iconSize: "md",
-    iconSpacing: "mb-4 md:mb-6",
+    iconSpacing: "mb-3 sm:mb-4 md:mb-6",
     textAlignment: "left",
   },
 };
