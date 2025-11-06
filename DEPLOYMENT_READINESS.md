@@ -81,12 +81,14 @@ The Bridge landing page has undergone comprehensive review and **ALL critical is
 
 - [ ] **Configure Vercel Environment Variables**
   - `NEXT_PUBLIC_BASE_URL` = `https://yourdomain.com`
-  - `SUPABASE_URL` = Your Supabase project URL
-  - `SUPABASE_SERVICE_ROLE_KEY` = Service role key (mark as secret ✅)
-  - `RESEND_API_KEY` = Resend API key (mark as secret ✅)
+  - `SUPABASE_URL` = Your Supabase project URL (from Supabase dashboard)
+  - `SUPABASE_SERVICE_ROLE_KEY` = Service role key (mark as secret ✅) - **MUST BE ROTATED**
+  - `RESEND_API_KEY` = Resend API key (mark as secret ✅) - **MUST BE ROTATED**
   - `RESEND_FROM_EMAIL` = `hello@yourdomain.com` (after verification)
   - `RESEND_REPLY_TO` = `support@yourdomain.com`
   - `APP_VERSION` = `v1.0.0` or current version
+
+**⚠️ SECURITY NOTE**: Previous versions of this file contained actual API keys. Those keys have been exposed in git history and MUST be rotated before deployment. See `.env.example` for reference values.
 
 - [ ] **Test Full Signup Flow**
   - Complete form submission
@@ -371,9 +373,9 @@ vercel --prod
 
 # Add these variables:
 NEXT_PUBLIC_BASE_URL=https://yourdomain.com
-SUPABASE_URL=https://ikyiwnydgedwbmcdzgbe.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGc... (mark as secret)
-RESEND_API_KEY=re_EyquE55x... (mark as secret)
+SUPABASE_URL=your-supabase-project-url
+SUPABASE_SERVICE_ROLE_KEY=your-rotated-service-role-key (mark as secret)
+RESEND_API_KEY=your-rotated-resend-api-key (mark as secret)
 RESEND_FROM_EMAIL=hello@yourdomain.com
 RESEND_REPLY_TO=support@yourdomain.com
 APP_VERSION=v1.0.0

@@ -418,13 +418,13 @@ SELECT * FROM waitlist_signups ORDER BY created_at DESC LIMIT 5;
    APP_VERSION=v1.0.0
 
    # Supabase (mark as secret ✅)
-   SUPABASE_URL=https://ikyiwnydgedwbmcdzgbe.supabase.co
-   SUPABASE_SERVICE_ROLE_KEY=eyJhbGc... [mark as secret]
+   SUPABASE_URL=your-supabase-project-url
+   SUPABASE_SERVICE_ROLE_KEY=your-rotated-service-role-key [mark as secret]
 
    # Resend (mark as secret ✅)
-   RESEND_API_KEY=re_EyquE55x... [mark as secret]
-   RESEND_FROM_EMAIL=hello@bridge.app
-   RESEND_REPLY_TO=support@bridge.app
+   RESEND_API_KEY=your-rotated-resend-api-key [mark as secret]
+   RESEND_FROM_EMAIL=hello@yourdomain.com
+   RESEND_REPLY_TO=support@yourdomain.com
    ```
 
 3. **Environment Selection**

@@ -4,9 +4,15 @@
 
 ### 1. Environment Variables to Add in Vercel
 ```
-SUPABASE_URL=https://ikyiwnydgedwbmcdzgbe.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlreWl3bnlkZ2Vkd2JtY2R6Z2JlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MTY2ODgyMywiZXhwIjoyMDc3MjQ0ODIzfQ.Yz1FSIsDvuz4nRge4zBJ7vxj-RQDYYPdb_MHr4eJRFs
+SUPABASE_URL=your-supabase-project-url
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
+RESEND_API_KEY=your-resend-api-key
+RESEND_FROM_EMAIL=hello@yourdomain.com
+RESEND_REPLY_TO=support@yourdomain.com
+NEXT_PUBLIC_BASE_URL=https://yourdomain.com
 ```
+
+**NOTE: See `.env.example` for the complete list and actual values from your local setup.**
 
 **Important:** Add these in Vercel Dashboard → Project Settings → Environment Variables
 
