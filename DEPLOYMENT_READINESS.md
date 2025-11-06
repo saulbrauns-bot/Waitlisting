@@ -29,6 +29,12 @@ The Bridge landing page has undergone comprehensive review and critical issues h
 - [x] Verify build succeeds (`pnpm build`) ✅
 - [x] Verify all critical API routes work
 - [x] Confirm Supabase connection and RLS policies
+- [x] Disable /api/invite feature (endpoint not yet implemented)
+- [x] Add SEO metadata (OpenGraph, Twitter Cards)
+- [x] Implement Analytics (Vercel Analytics)
+- [x] Create sitemap.xml
+- [x] Create robots.txt
+- [x] Add OG image for social sharing
 
 ### **PHASE 2: Production Setup** (Required Before Launch 🔴)
 
@@ -57,16 +63,6 @@ The Bridge landing page has undergone comprehensive review and critical issues h
 
 ### **PHASE 3: Post-Launch** (Nice to Have 🟡)
 
-- [ ] **Add SEO Metadata**
-  - OpenGraph tags
-  - Twitter Card tags
-  - Sitemap.xml
-  - Robots.txt
-
-- [ ] **Implement Analytics**
-  - Vercel Analytics OR
-  - Plausible Analytics
-
 - [ ] **Add Monitoring**
   - Error tracking (Sentry)
   - Email delivery monitoring
@@ -75,7 +71,17 @@ The Bridge landing page has undergone comprehensive review and critical issues h
 - [ ] **Implement /api/invite Endpoint**
   - Currently referenced but not implemented
   - Required for referral invite feature on confirmation page
-  - Can be disabled temporarily if needed
+  - Currently disabled in WaitlistConfirmation.tsx
+
+- [ ] **Replace OG Image**
+  - Current: Using BridgeLogo.png as placeholder (249KB)
+  - Recommended: Create professional 1200x630px OG image with branding
+  - Optional but improves social sharing appearance
+
+- [ ] **Upgrade Rate Limiting**
+  - Current: In-memory Map (resets on server restart)
+  - Recommended: Redis-backed rate limiting with @upstash/ratelimit
+  - Optional but improves security at scale
 
 ---
 
