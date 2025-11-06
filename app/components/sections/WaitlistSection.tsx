@@ -108,23 +108,23 @@ export default function WaitlistSection() {
   }
 
   return (
-    <section id="waitlist" className="py-24 md:py-32 bg-bridge-bg">
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <h2 className="font-heading text-4xl md:text-6xl font-bold text-bridge-text mb-6">
+    <section id="waitlist" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-bridge-bg">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-bridge-text mb-4 sm:mb-6">
           Join the <span className="text-bridge-blue">NYC</span> Waitlist
         </h2>
-        <p className="text-bridge-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-2">
           Be among the first to experience thoughtful online dating in <span className="text-bridge-blue">NYC</span>.
         </p>
 
         {/* CountUp badge with confetti */}
-        <div className="mt-6 flex justify-center">
+        <div className="mt-4 sm:mt-6 flex justify-center">
           <CountUpBadge />
         </div>
 
         {/* Card */}
-        <div className="mt-8 mx-auto max-w-2xl rounded-3xl border border-bridge-border bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.12)]">
-          <form noValidate onSubmit={onSubmit} className="p-6 md:p-8 text-left">
+        <div className="mt-6 sm:mt-8 mx-auto max-w-2xl rounded-2xl md:rounded-3xl border border-bridge-border bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.12)]">
+          <form noValidate onSubmit={onSubmit} className="p-4 sm:p-6 md:p-8 text-left">
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* First name (required) */}

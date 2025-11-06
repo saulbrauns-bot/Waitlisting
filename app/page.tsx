@@ -44,13 +44,13 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer
-          className="border-t border-bridge-border px-6 py-16"
+          className="border-t border-bridge-border px-4 sm:px-6 py-12 sm:py-16"
           style={{ backgroundColor: "var(--color-bridge-gradient-5)" }}
           aria-label="Site footer"
         >
           <div className="mx-auto max-w-6xl">
-            <div className="flex flex-col items-center gap-6">
-              <div className="relative h-16 w-64">
+            <div className="flex flex-col items-center gap-4 sm:gap-6">
+              <div className="relative h-12 w-48 sm:h-16 sm:w-64">
                 <Image
                   src="/images/BridgeLogo.png"
                   alt="Bridge"
@@ -63,7 +63,7 @@ export default function HomePage() {
                   priority={false}
                 />
               </div>
-              <p className="text-bridge-text-muted text-center">
+              <p className="text-bridge-text-muted text-center text-sm sm:text-base">
                 {FOOTER.copyright}
               </p>
             </div>

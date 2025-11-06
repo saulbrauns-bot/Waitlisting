@@ -19,13 +19,13 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md border-b border-bridge-border/30 transition-opacity duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-bridge-border/30 transition-opacity duration-500 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <div className="relative h-12 w-48 -ml-2">
+          <div className="relative h-10 w-36 sm:h-12 sm:w-48 -ml-1 sm:-ml-2">
             <Image
               src="/images/BridgeLogo.png"
               alt="Bridge"

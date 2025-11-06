@@ -33,7 +33,7 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden min-h-screen flex flex-col">
-      {/* Wavy Background Effect */}
+      {/* Wavy Background Effect - Simplified for mobile */}
       <WavyBackground
         containerClassName="absolute inset-0"
         colors={["#4A90E2", "#B3D4FF", "#1E6BD6"]}
@@ -42,14 +42,16 @@ export default function Hero() {
         blur={10}
         speed="slow"
         waveOpacity={0.15}
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
       />
+      {/* Static gradient background for mobile (better performance) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-bridge-primary-light/5 to-white md:hidden" />
 
-      <div className="max-w-4xl mx-auto px-6 md:px-8 py-20 md:py-32 flex-1 flex flex-col items-center justify-center text-center relative z-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-32 flex-1 flex flex-col items-center justify-center text-center relative z-20">
         {/* Centered hero content */}
         <div className="w-full">
           <h1
-            className="font-heading text-5xl md:text-7xl font-bold leading-tight text-bridge-text mb-8"
+            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-bridge-text mb-6 sm:mb-8"
             style={{
               textShadow: '0 0 20px rgba(26, 26, 26, 0.15), 0 2px 8px rgba(26, 26, 26, 0.12), 0 4px 12px rgba(26, 26, 26, 0.08)'
             }}
@@ -76,7 +78,7 @@ export default function Hero() {
             }`}
           >
             <p
-              className="font-body text-xl md:text-2xl text-bridge-text-secondary max-w-2xl mx-auto mb-10"
+              className="font-body text-lg sm:text-xl md:text-2xl text-bridge-text-secondary max-w-2xl mx-auto mb-8 sm:mb-10 px-2"
               style={{
                 textShadow: '0 1px 3px rgba(74, 85, 104, 0.08), 0 2px 6px rgba(74, 85, 104, 0.05)'
               }}
@@ -86,11 +88,11 @@ export default function Hero() {
             </p>
 
             {/* Join Waitlist Button - Wider to match box with animated gradient swoop */}
-            <div className="mb-10 max-w-3xl mx-auto w-full px-4">
+            <div className="mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto w-full px-2 sm:px-4">
               <a
                 href="#waitlist"
                 onClick={scrollToSection('waitlist')}
-                className="font-body group relative flex items-center justify-center rounded-xl bg-bridge-blue text-white w-full py-3.5 text-base font-semibold overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-bridge-blue focus:ring-offset-2"
+                className="font-body group relative flex items-center justify-center rounded-xl bg-bridge-blue text-white w-full py-3 sm:py-3.5 text-base font-semibold overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-bridge-blue focus:ring-offset-2"
                 style={{
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                   transition: 'all 0.3s ease-out, box-shadow 0.3s ease-out',
