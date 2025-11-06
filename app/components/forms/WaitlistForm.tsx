@@ -145,7 +145,7 @@ export default function WaitlistForm({
 
   if (submitState === "duplicate") {
     return (
-      <div className="text-center space-y-4 p-8 md:p-10 bg-white/95 rounded-xl border border-bridge-border shadow-lg max-w-lg mx-auto">
+      <div className="text-center space-y-4 p-6 sm:p-8 md:p-10 bg-white/95 rounded-xl border border-bridge-border shadow-lg max-w-lg mx-auto">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-bridge-primary/10">
           <svg
             className="h-8 w-8 text-bridge-primary"
@@ -252,7 +252,7 @@ interface DefaultFormProps {
 
 function DefaultForm({ formData, onChange, onSubmit, isPending, fieldErrors }: DefaultFormProps) {
   return (
-    <div className="bg-white/95 border border-bridge-border rounded-xl p-8 shadow-lg">
+    <div className="bg-white/95 border border-bridge-border rounded-xl p-4 sm:p-6 md:p-8 shadow-lg">
       <p className="text-center text-bridge-text-muted mb-6 text-sm">
         {FORM_MESSAGES.DESCRIPTION}
       </p>

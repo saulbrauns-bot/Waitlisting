@@ -25,7 +25,15 @@ export function useStickyColumnHeight(
   const [height, setHeight] = useState<string>("auto");
 
   useEffect(() => {
+    // Skip calculations on mobile to avoid getBoundingClientRect() performance issues
+    const isMobile = () => window.innerWidth < 768;
+
     const calculateHeight = () => {
+      if (isMobile()) {
+        setHeight("auto");
+        return;
+      }
+
       if (!targetRef.current || !sectionRef.current) return;
 
       const targetRect = targetRef.current.getBoundingClientRect();

@@ -21,7 +21,7 @@ export default function FormInput({ label, error, className = "", ...props }: Fo
         </label>
         <input className={combinedClasses} {...props} />
         {error && (
-          <p className="text-xs text-bridge-error mt-1">{error}</p>
+          <p className="text-sm sm:text-xs text-bridge-error mt-1">{error}</p>
         )}
       </div>
     );
@@ -30,7 +30,7 @@ export default function FormInput({ label, error, className = "", ...props }: Fo
   return (
     <>
       <input className={combinedClasses} {...props} />
-      {error && <p className="text-xs text-bridge-error mt-1">{error}</p>}
+      {error && <p className="text-sm sm:text-xs text-bridge-error mt-1">{error}</p>}
     </>
   );
 }

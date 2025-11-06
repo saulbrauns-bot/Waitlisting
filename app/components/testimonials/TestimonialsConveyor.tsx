@@ -47,7 +47,7 @@ export default function TestimonialsConveyor() {
               className="flex-shrink-0 bg-white/80 backdrop-blur-sm border border-bridge-border rounded-xl px-6 py-4 min-w-[320px] max-w-[320px]"
             >
               <p className="text-bridge-text text-base leading-relaxed mb-3">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
               <p className="text-bridge-text-muted text-sm font-medium">
                 — {testimonial.name}

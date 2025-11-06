@@ -20,6 +20,6 @@ export function getIpAddress(request: NextRequest): string | null {
   }
 
   // Fallback to request IP (may be localhost in dev)
-  // @ts-ignore - ip property exists at runtime but not in types
+  // @ts-expect-error - ip property exists at runtime but not in types
   return request.ip || null;
 }

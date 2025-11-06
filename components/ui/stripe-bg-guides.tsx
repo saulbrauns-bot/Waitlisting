@@ -96,7 +96,10 @@ export function StripeBgGuides({
   }, [])
 
   useEffect(() => {
-    setActiveColumns(columns.map(() => true))
+    // Schedule state update asynchronously to avoid cascading renders
+    queueMicrotask(() => {
+      setActiveColumns(columns.map(() => true))
+    })
   }, [columns])
 
   useEffect(() => {
@@ -106,7 +109,10 @@ export function StripeBgGuides({
       }, randomInterval)
       return () => clearInterval(intervalId)
     } else {
-      setActiveColumns(columns.map(() => true))
+      // Schedule state update asynchronously to avoid cascading renders
+      queueMicrotask(() => {
+        setActiveColumns(columns.map(() => true))
+      })
     }
   }, [randomize, animated, randomInterval, getRandomColumns, columns])
 

@@ -27,7 +27,7 @@ export default function WaitlistConfirmationEmail({
   return (
     <Html>
       <Head />
-      <Preview>You're on the Bridge waitlist! We'll email you when we launch in NYC.</Preview>
+      <Preview>You&apos;re on the Bridge waitlist! We&apos;ll email you when we launch in NYC.</Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header with Bridge branding */}
@@ -36,12 +36,12 @@ export default function WaitlistConfirmationEmail({
           <Text style={text}>Hi {firstName},</Text>
 
           <Text style={text}>
-            You're officially on the waitlist! 🎉
+            You&apos;re officially on the waitlist! 🎉
           </Text>
 
           <Text style={text}>
-            We're building something special for busy NYC professionals who want real connections
-            without the endless swiping. You'll be among the first to know when we launch.
+            We&apos;re building something special for busy NYC professionals who want real connections
+            without the endless swiping. You&apos;ll be among the first to know when we launch.
           </Text>
 
           {/* Early Member Benefit Reminder */}
@@ -51,18 +51,18 @@ export default function WaitlistConfirmationEmail({
               <strong>12 months of Bridge at no cost</strong>
             </Text>
             <Text style={text}>
-              As one of our first 2,500 members, you'll get a full year of Bridge for free.
-              We'll email you when it's time to claim your reward.
+              As one of our first 2,500 members, you&apos;ll get a full year of Bridge for free.
+              We&apos;ll email you when it&apos;s time to claim your reward.
             </Text>
           </Section>
 
           {/* What's Next */}
           <Section style={section}>
-            <Heading style={h3}>What's next?</Heading>
+            <Heading style={h3}>What&apos;s next?</Heading>
             <Text style={text}>
-              1. We'll email you when Bridge launches in NYC in 2026
+              1. We&apos;ll email you when Bridge launches in NYC in 2026
               <br />
-              2. You'll get early access to claim your 12-month reward
+              2. You&apos;ll get early access to claim your 12-month reward
               <br />
               3. Start meeting other busy professionals who get it
             </Text>
@@ -77,8 +77,8 @@ export default function WaitlistConfirmationEmail({
           </Text>
 
           <Text style={smallText}>
-            You're receiving this because you joined the Bridge waitlist.
-            We'll only email you about your launch access and benefits.
+            You&apos;re receiving this because you joined the Bridge waitlist.
+            We&apos;ll only email you about your launch access and benefits.
           </Text>
         </Container>
       </Body>

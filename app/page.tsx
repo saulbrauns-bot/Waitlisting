@@ -1,5 +1,4 @@
 import Header from "@/app/components/header/Header";
-import StickySubnav from "@/app/components/nav/StickySubnav";
 import Hero from "@/app/components/hero/Hero";
 import WhyBridgeSection from "@/app/components/sections/WhyBridgeSection";
 import PerksSection from "@/app/components/sections/PerksSection";
@@ -17,7 +16,6 @@ export default function HomePage() {
       <ScrollToTop />
       <Header />
       <main className="min-h-dvh">
-        <StickySubnav />
         <Hero />
 
         <WhyBridgeSection />
@@ -29,8 +27,8 @@ export default function HomePage() {
         <div className="relative">
           <WaitlistSection />
 
-          {/* Bench Image - positioned in bottom right corner */}
-          <div className="absolute bottom-0 right-6 w-48 md:w-64 lg:w-80 pointer-events-none">
+          {/* Bench Image - positioned in bottom right corner (hidden on mobile) */}
+          <div className="hidden md:block absolute bottom-0 right-6 w-48 md:w-64 lg:w-80 pointer-events-none">
             <Image
               src={IMAGE_PATHS.BENCH}
               alt="Park bench representing connection and meeting"

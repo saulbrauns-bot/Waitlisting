@@ -43,19 +43,19 @@ export const VARIANT_CONFIGS: Record<BentoCardVariant, BentoCardStyleConfig> = {
   wide: {
     paddingClasses: "px-3 sm:px-4 md:px-5 pt-3 sm:pt-4 md:pt-5 pb-2 sm:pb-3 md:pb-4",
     iconSize: "lg",
-    iconSpacing: "mb-2 md:mb-3",
+    iconSpacing: "mb-2 sm:mb-2.5 md:mb-3",
     textAlignment: "center",
   },
   standard: {
-    paddingClasses: "p-4 sm:p-5 md:p-6 lg:p-8",
+    paddingClasses: "p-3 sm:p-4 md:p-5 lg:p-6",
     iconSize: "md",
-    iconSpacing: "mb-3 sm:mb-4 md:mb-6",
+    iconSpacing: "mb-2.5 sm:mb-3 md:mb-4 lg:mb-5",
     textAlignment: "left",
   },
   tall: {
-    paddingClasses: "p-4 sm:p-5 md:p-6 lg:p-8",
+    paddingClasses: "p-3 sm:p-4 md:p-5 lg:p-6",
     iconSize: "md",
-    iconSpacing: "mb-3 sm:mb-4 md:mb-6",
+    iconSpacing: "mb-2.5 sm:mb-3 md:mb-4 lg:mb-5",
     textAlignment: "left",
   },
 };

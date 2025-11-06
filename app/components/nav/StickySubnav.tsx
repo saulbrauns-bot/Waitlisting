@@ -21,7 +21,7 @@ export default function StickySubnav() {
 
   return (
     <div
-      className={`sticky top-0 z-40 border-b border-bridge-border backdrop-blur transition-opacity duration-300 bg-bridge-background/70 ${
+      className={`hidden md:block sticky top-0 z-40 border-b border-bridge-border backdrop-blur transition-opacity duration-300 bg-bridge-background/70 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-hidden={!visible}

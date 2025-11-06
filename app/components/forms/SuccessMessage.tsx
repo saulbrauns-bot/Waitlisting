@@ -61,7 +61,7 @@ export default function SuccessMessage({
       {/* Headline */}
       <div>
         <h3 className="font-heading text-3xl md:text-4xl font-medium text-bridge-text mb-4">
-          You're in.
+          You&apos;re in.
         </h3>
 
         {/* Body Text */}
@@ -69,15 +69,15 @@ export default function SuccessMessage({
           Thanks, <span className="font-medium text-bridge-text">{firstName}</span>! Your early
           member spot is secured.
           <br />
-          We'll email you at <span className="font-medium text-bridge-text">{email}</span> when we
-          launch and when it's time to claim your one-year free access.
+          We&apos;ll email you at <span className="font-medium text-bridge-text">{email}</span> when we
+          launch and when it&apos;s time to claim your one-year free access.
         </p>
       </div>
 
       {/* Share Section */}
       <div className="pt-4 border-t border-bridge-border">
         <p className="text-bridge-text-muted mb-4 text-sm md:text-base">
-          Know someone with a full schedule who'd love Bridge?
+          Know someone with a full schedule who&apos;d love Bridge?
         </p>
         <Button onClick={handleShare} variant="secondary">
           Share Bridge with a friend

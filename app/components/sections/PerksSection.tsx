@@ -51,17 +51,18 @@ function BackgroundDecoration() {
  */
 function SectionHeader() {
   return (
-    <div className="text-center mb-12 md:mb-16 lg:mb-20">
+    <div className="text-center mb-8 sm:mb-10 md:mb-14 lg:mb-18">
       <ExclusiveBadge />
-      <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-bridge-text mb-4 md:mb-6 px-2">
+      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-bridge-text mb-3 sm:mb-4 md:mb-5 px-2">
         <span className="text-bridge-text">Early Member </span>
         <span className="bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue bg-clip-text text-transparent">
           Reward
         </span>
       </h2>
-      <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-4">
-        Join the first 2,500 members and enjoy{" "}
-        <span className="font-medium text-bridge-blue">12 months of Bridge at no cost</span>.{" "}
+      <p className="text-bridge-text-muted text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-3 sm:px-4">
+        <span className="md:whitespace-nowrap">Join the first 2,500 members and enjoy{" "}
+        <span className="font-medium text-bridge-blue">12 months of Bridge at no cost</span>.</span>
+        <br className="hidden md:block" />{" "}
         Spots are limited.
       </p>
     </div>
@@ -88,27 +89,27 @@ function SpotlightHeroCard() {
   const heroPerk = EARLY_MEMBER_PERKS[0]; // "1 Year Free"
 
   return (
-    <div className="mb-8 md:mb-12 lg:mb-16">
+    <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-14">
       <div className="relative group">
         {/* Glow effect */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue rounded-2xl md:rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-bridge-blue via-bridge-blue-dark to-bridge-blue rounded-xl md:rounded-2xl lg:rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
 
         {/* Main card */}
-        <div className="relative bg-gradient-to-br from-white to-bridge-surface border-2 border-bridge-blue/30 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl backdrop-blur-sm overflow-hidden">
-          <div className="relative grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div className="relative bg-gradient-to-br from-white to-bridge-surface border-2 border-bridge-blue/30 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl backdrop-blur-sm overflow-hidden">
+          <div className="relative grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
             {/* Left: Icon and value */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4 md:space-y-6">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl bg-gradient-to-br from-bridge-blue to-bridge-blue-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-3 sm:space-y-4 md:space-y-5">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br from-bridge-blue to-bridge-blue-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={heroPerk.icon} />
                 </svg>
               </div>
 
               <div>
-                <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-bridge-text mb-2 md:mb-3">
+                <h3 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-bridge-text mb-1.5 sm:mb-2 md:mb-3">
                   {heroPerk.title}
                 </h3>
-                <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl">
+                <p className="text-bridge-text-muted text-sm sm:text-base md:text-lg lg:text-xl">
                   {heroPerk.description}
                 </p>
               </div>

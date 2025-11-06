@@ -10,16 +10,9 @@ const HERO_LINE_1 = "Busy People";
 const HERO_LINE_2 = "for Busy People";
 
 export default function Hero() {
-  const [startLine2, setStartLine2] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    // For users with reduced motion, show everything immediately
-    if (prefersReducedMotion()) {
-      setStartLine2(true);
-      setShowContent(true);
-    }
-  }, []);
+  // Initialize state based on reduced motion preference
+  const [startLine2, setStartLine2] = useState(() => prefersReducedMotion());
+  const [showContent, setShowContent] = useState(() => prefersReducedMotion());
 
   const handleLine1Complete = useCallback(() => {
     // Start typing line 2 immediately after line 1 completes
@@ -47,11 +40,11 @@ export default function Hero() {
       {/* Static gradient background for mobile (better performance) */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-bridge-primary-light/5 to-white md:hidden" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-32 flex-1 flex flex-col items-center justify-center text-center relative z-20">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-32 flex-1 flex flex-col items-center justify-center text-center relative z-20">
         {/* Centered hero content */}
         <div className="w-full">
           <h1
-            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-bridge-text mb-6 sm:mb-8"
+            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-bridge-text mb-5 sm:mb-6 md:mb-8"
             style={{
               textShadow: '0 0 20px rgba(26, 26, 26, 0.15), 0 2px 8px rgba(26, 26, 26, 0.12), 0 4px 12px rgba(26, 26, 26, 0.08)'
             }}
@@ -78,7 +71,7 @@ export default function Hero() {
             }`}
           >
             <p
-              className="font-body text-lg sm:text-xl md:text-2xl text-bridge-text-secondary max-w-2xl mx-auto mb-8 sm:mb-10 px-2"
+              className="font-body text-base sm:text-lg md:text-xl lg:text-2xl text-bridge-text-secondary max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 px-1 sm:px-2"
               style={{
                 textShadow: '0 1px 3px rgba(74, 85, 104, 0.08), 0 2px 6px rgba(74, 85, 104, 0.05)'
               }}
@@ -88,7 +81,7 @@ export default function Hero() {
             </p>
 
             {/* Join Waitlist Button - Wider to match box with animated gradient swoop */}
-            <div className="mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto w-full px-2 sm:px-4">
+            <div className="mb-5 sm:mb-6 md:mb-8 lg:mb-10 max-w-3xl mx-auto w-full px-1 sm:px-2 md:px-4">
               <a
                 href="#waitlist"
                 onClick={scrollToSection('waitlist')}

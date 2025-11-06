@@ -22,6 +22,7 @@ interface BentoCardProps {
   children?: React.ReactNode;
   backgroundImage?: string;
   backgroundPosition?: string;
+  customDesc?: React.ReactNode;
 }
 
 /**
@@ -37,6 +38,7 @@ export default function BentoCard({
   children,
   backgroundImage,
   backgroundPosition = "center bottom",
+  customDesc,
 }: BentoCardProps) {
   const shadowClasses = SHADOW_CONFIGS[shadowDirection];
   const gradientClasses = GRADIENT_CONFIGS[gradientDirection];
@@ -44,9 +46,9 @@ export default function BentoCard({
     VARIANT_CONFIGS[variant];
 
   return (
-    <div style={createFadeInAnimation(animationDelay)}>
+    <div className="md:opacity-0 md:animate-[fadeIn_0.6s_ease-out_forwards] w-full" style={createFadeInAnimation(animationDelay)}>
       <div
-        className={`relative overflow-hidden rounded-[2rem] ${paddingClasses} backdrop-blur-xl bg-white/40 border border-white/50 ${shadowClasses} hover:shadow-[0_-8px_24px_rgba(0,0,0,0.08),0_-2px_8px_rgba(74,144,226,0.12)] transition-all duration-500 ease-out hover:-translate-y-1 group h-full`}
+        className={`relative overflow-hidden rounded-[2rem] ${paddingClasses} bg-white/95 border border-white/50 ${shadowClasses} hover:shadow-xl transition-shadow duration-300 group h-full w-full`}
       >
         {backgroundImage && (
           <div
@@ -67,23 +69,23 @@ export default function BentoCard({
             <div
               className={`${textAlignment === "center" ? "mx-auto" : ""} ${iconSpacing} ${getIconContainerClasses(
                 iconSize
-              )} group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-bridge-blue/30`}
+              )} md:group-hover:scale-110 transition-transform duration-300 shadow-xl shadow-bridge-blue/30`}
             >
               <Icon path={feature.icon} size={iconSize} className="text-white" />
             </div>
             <h3
-              className={`font-heading text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-bridge-text mb-1 sm:mb-2 md:mb-3 whitespace-pre-line ${
+              className={`font-heading text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-bridge-text mb-1 sm:mb-2 md:mb-3 whitespace-pre-line ${
                 textAlignment === "center" ? "text-center" : ""
-              } ${variant === "wide" ? "text-lg sm:text-xl md:text-2xl lg:text-3xl mb-1 md:mb-2" : ""}`}
+              } ${variant === "wide" ? "text-base sm:text-lg md:text-xl lg:text-2xl mb-1 md:mb-2" : ""}`}
             >
               {feature.title}
             </h3>
             <p
               className={`text-bridge-text-muted ${
                 variant === "wide" ? "leading-snug" : "leading-relaxed"
-              } text-xs sm:text-sm md:text-base ${textAlignment === "center" ? "text-center" : ""}`}
+              } text-xs sm:text-xs md:text-sm lg:text-base ${textAlignment === "center" ? "text-center" : ""}`}
             >
-              {feature.desc}
+              {customDesc || feature.desc}
             </p>
           </div>
           {children && <div className="mt-auto">{children}</div>}

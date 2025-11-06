@@ -187,7 +187,7 @@ export default function WaitlistSection() {
                   required
                 />
                 <p id="emailHelp" className="mt-1 text-xs text-bridge-text-muted">
-                  We'll notify you when Bridge launches. No spam, ever.
+                  We&apos;ll notify you when Bridge launches. No spam, ever.
                 </p>
                 {touched.email && !emailValid && (
                   <p role="alert" className="mt-1 text-xs text-red-600">
@@ -259,12 +259,17 @@ export default function WaitlistSection() {
               <Button
                 type="submit"
                 disabled={!isValid || loading}
-                className={`w-full rounded-2xl h-12 text-base relative overflow-hidden ${
+                className={`w-full rounded-2xl h-12 text-sm sm:text-base relative overflow-hidden ${
                   isValid && !loading ? 'shimmer-button' : ''
                 }`}
                 aria-live="polite"
               >
-                {loading ? "Joining…" : "Join 1,000+ New Yorkers waiting for Bridge"}
+                {loading ? "Joining…" : (
+                  <>
+                    <span className="hidden sm:inline">Join 1,000+ New Yorkers waiting for Bridge</span>
+                    <span className="sm:hidden">Join 1,000+ early members</span>
+                  </>
+                )}
               </Button>
               <p className="mt-3 text-xs text-bridge-text-muted text-center">
                 Only 2,500 spots.
