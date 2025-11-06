@@ -1,12 +1,14 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://bridge.app'
+
   return {
     rules: {
       userAgent: '*',
       allow: '/',
       disallow: ['/api/', '/confirmation-test/', '/_next/'],
     },
-    sitemap: 'https://bridge.app/sitemap.xml', // TODO: Update with your actual domain
+    sitemap: `${baseUrl}/sitemap.xml`,
   }
 }

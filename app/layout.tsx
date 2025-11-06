@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bridge - Dating for Busy Professionals",
     description: "One curated match at a time. Join the waitlist for thoughtful dating in NYC.",
-    url: "https://bridge.app", // Update with your actual domain
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://bridge.app",
     siteName: "Bridge",
     images: [
       {
