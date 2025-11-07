@@ -68,6 +68,19 @@ export default function WaitlistConfirmationEmail({
             </Text>
           </Section>
 
+          {/* User Research Invitation */}
+          <Section style={researchBox}>
+            <Heading style={h3}>We&apos;d love to hear from you</Heading>
+            <Text style={text}>
+              We&apos;re building Bridge with real feedback from people like you. If you&apos;d be open to
+              chatting for <strong>15 minutes</strong> about your thoughts on dating apps, dating, and work-life
+              balance, we&apos;d be incredibly grateful.
+            </Text>
+            <Text style={text}>
+              Just reply to this email and we&apos;ll find a time that works for you. No pressure at all!
+            </Text>
+          </Section>
+
           {/* Footer */}
           <Text style={footerText}>
             Questions? Just reply to this email.
@@ -186,4 +199,12 @@ const footerText = {
   fontSize: "16px",
   lineHeight: "1.6",
   margin: "32px 0 16px",
+};
+
+const researchBox = {
+  backgroundColor: "#fef9f3",
+  border: "2px solid #ebd8b7",
+  borderRadius: "12px",
+  padding: "24px",
+  margin: "24px 0",
 };
