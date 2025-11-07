@@ -24,7 +24,7 @@ export async function copyToClipboard(url: string = window.location.origin): Pro
  */
 export async function shareOrCopy(options: ShareOptions = {}): Promise<{ method: 'native' | 'clipboard' }> {
   const {
-    title = 'Bridge - Dating for Busy People',
+    title = 'Bridge - Intentional Dating for Busy People',
     text = 'Check out Bridge - thoughtful dating that takes just minutes a day',
     url = window.location.origin,
   } = options;

@@ -1,7 +1,6 @@
 import Header from "@/app/components/header/Header";
 import Hero from "@/app/components/hero/Hero";
 import WhyBridgeSection from "@/app/components/sections/WhyBridgeSection";
-import PerksSection from "@/app/components/sections/PerksSection";
 import WaitlistSection from "@/app/components/sections/WaitlistSection";
 import ScrollToTop from "@/app/components/ScrollToTop";
 import {
@@ -19,9 +18,6 @@ export default function HomePage() {
         <Hero />
 
         <WhyBridgeSection />
-
-        {/* Early Member Perks Section */}
-        <PerksSection backgroundColor="var(--color-bridge-gradient-3)" />
 
         {/* Waitlist Section with Bench Image */}
         <div className="relative">

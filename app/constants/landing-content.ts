@@ -17,7 +17,6 @@ export interface NavLink {
 // Navigation links
 export const NAV_LINKS: NavLink[] = [
   { href: "#why", label: "Why Bridge" },
-  { href: "#perks", label: "Early Member Reward" },
   { href: "#waitlist", label: "Join Waitlist" },
 ];
 
@@ -62,7 +61,7 @@ export const SECTIONS = {
 // Footer content
 export const FOOTER = {
   brandName: "Bridge",
-  copyright: "© 2025 Bridge. Busy People for Busy People.",
+  copyright: "© 2025 Bridge. Intentional Dating for Busy People.",
 } as const;
 
 // FAQ Section

@@ -6,7 +6,7 @@ import TypingText from "@/app/components/hero/TypingText";
 import { prefersReducedMotion } from "@/app/lib/animations";
 import { scrollToSection } from "@/app/lib/scroll-utils";
 
-const HERO_LINE_1 = "Busy People";
+const HERO_LINE_1 = "Intentional Dating";
 const HERO_LINE_2 = "for Busy People";
 
 export default function Hero() {
@@ -76,7 +76,7 @@ export default function Hero() {
                 textShadow: '0 1px 3px rgba(74, 85, 104, 0.08), 0 2px 6px rgba(74, 85, 104, 0.05)'
               }}
             >
-              One curated match. Real connection.<br />
+              Curated matches. Real connection.<br />
               Thoughtful dating that takes just minutes a day.
             </p>
 

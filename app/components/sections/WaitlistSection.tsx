@@ -114,7 +114,7 @@ export default function WaitlistSection() {
           Join the <span className="text-bridge-blue">NYC</span> Waitlist
         </h2>
         <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-2">
-          Be among the first to experience thoughtful online dating in <span className="text-bridge-blue">NYC</span>.
+          Be among the first to experience thoughtful online dating in <span className="text-bridge-blue">NYC</span>. Early members get <span className="font-medium text-bridge-blue">12 months of Bridge free</span>.
         </p>
 
         {/* CountUp badge with confetti */}
@@ -140,7 +140,7 @@ export default function WaitlistSection() {
                   onBlur={() => onBlur("firstName")}
                   aria-invalid={touched.firstName && !firstNameValid}
                   aria-describedby="firstNameHelp"
-                  placeholder="Emma"
+                  placeholder="John"
                   className="mt-1"
                   required
                 />
@@ -164,7 +164,7 @@ export default function WaitlistSection() {
                   autoComplete="family-name"
                   value={form.lastName}
                   onChange={(e) => update("lastName", e.target.value)}
-                  placeholder="Morgan"
+                  placeholder="Doe"
                   className="mt-1"
                 />
               </div>
@@ -182,7 +182,7 @@ export default function WaitlistSection() {
                   onBlur={() => onBlur("email")}
                   aria-invalid={touched.email && !emailValid}
                   aria-describedby="emailHelp"
-                  placeholder="emma@gmail.com"
+                  placeholder="john@gmail.com"
                   className="mt-1"
                   required
                 />

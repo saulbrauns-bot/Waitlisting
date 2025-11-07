@@ -6,7 +6,7 @@
  * Standard input field classes used across forms
  */
 export const inputClasses =
-  "font-body rounded-xl border border-bridge-border bg-white px-4 py-3 outline-none focus:ring-2 focus:ring-bridge-blue-light transition-shadow";
+  "font-body rounded-xl border border-bridge-border bg-white px-4 py-3 outline-none focus:ring-2 focus:ring-bridge-blue-light transition-shadow placeholder:text-gray-400";
 
 /**
  * Primary button classes with hover effects

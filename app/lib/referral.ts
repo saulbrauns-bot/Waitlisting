@@ -2,8 +2,8 @@
  * Utilities for generating and managing referral links and invite messages
  */
 
-const BASE_URL = "https://bridge.app";
-const WAITLIST_PATH = "/waitlist";
+const BASE_URL = "https://waitlisting-ier7.vercel.app";
+const WAITLIST_PATH = "";
 
 interface ReferralLinkParams {
   refCode?: string;

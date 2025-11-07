@@ -16,10 +16,10 @@ export const FORM_MESSAGES = {
 } as const;
 
 export const FORM_PLACEHOLDERS = {
-  FIRST_NAME: "Emma",
-  LAST_NAME: "Last name",
-  EMAIL: "Personal email (Emma@gmail.com)",
-  EMAIL_COMPACT: "Emma@gmail.com",
+  FIRST_NAME: "John",
+  LAST_NAME: "Doe",
+  EMAIL: "Personal email (john@gmail.com)",
+  EMAIL_COMPACT: "john@gmail.com",
   PHONE: "Phone number",
 } as const;
 
