@@ -6,8 +6,8 @@ import TypingText from "@/app/components/hero/TypingText";
 import { prefersReducedMotion } from "@/app/lib/animations";
 import { scrollToSection } from "@/app/lib/scroll-utils";
 
-const HERO_LINE_1 = "Intentional Dating";
-const HERO_LINE_2 = "for Busy People";
+const HERO_LINE_1 = "The community finds the fit.";
+const HERO_LINE_2 = "Bridge makes the match.";
 
 export default function Hero() {
   // Initialize state based on reduced motion preference
@@ -44,24 +44,27 @@ export default function Hero() {
         {/* Centered hero content */}
         <div className="w-full">
           <h1
-            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-bridge-text mb-5 sm:mb-6 md:mb-8"
+            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-bridge-text mb-5 sm:mb-6 md:mb-8 flex flex-col items-center justify-center"
             style={{
               textShadow: '0 0 20px rgba(26, 26, 26, 0.15), 0 2px 8px rgba(26, 26, 26, 0.12), 0 4px 12px rgba(26, 26, 26, 0.08)'
             }}
           >
-            <TypingText
-              text={HERO_LINE_1}
-              onComplete={handleLine1Complete}
-              delay={300}
-              shouldStart={true}
-            />
-            <br />
-            <TypingText
-              text={HERO_LINE_2}
-              onComplete={handleLine2Complete}
-              delay={0}
-              shouldStart={startLine2}
-            />
+            <div className="whitespace-nowrap">
+              <TypingText
+                text={HERO_LINE_1}
+                onComplete={handleLine1Complete}
+                delay={300}
+                shouldStart={true}
+              />
+            </div>
+            <div className="whitespace-nowrap">
+              <TypingText
+                text={HERO_LINE_2}
+                onComplete={handleLine2Complete}
+                delay={0}
+                shouldStart={startLine2}
+              />
+            </div>
           </h1>
 
           {/* Content that appears after typing */}
@@ -76,8 +79,7 @@ export default function Hero() {
                 textShadow: '0 1px 3px rgba(74, 85, 104, 0.08), 0 2px 6px rgba(74, 85, 104, 0.05)'
               }}
             >
-              Curated matches. Real connection.<br />
-              Thoughtful dating that takes just minutes a day.
+              Daily curated matches shaped by real community insight.
             </p>
 
             {/* Join Waitlist Button - Wider to match box with animated gradient swoop */}

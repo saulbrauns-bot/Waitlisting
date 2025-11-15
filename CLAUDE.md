@@ -271,9 +271,7 @@ Thoughtful dating that takes just minutes a day."
 | **Surface**            | Mist Gray  | `#F1F3F5` | `--color-bridge-surface`  | Used for cards, modals, and elevated containers                        |
 | **Border**             | Cloud Gray | `#D6D9DE` | `--color-bridge-border`   | Light, non-distracting borders for inputs or containers                |
 | **Text Primary**       | Charcoal   | `#1A1A1A` | `--color-bridge-text-primary` | High-contrast, professional typography color                   |
-| **Text Secondary**     | Slate      | `#4A5568` | `--color-bridge-text-secondary` | Used for subtitles, muted labels, or secondary info          |
-| **Success**            | Emerald    | `#16A34A` | `--color-bridge-success`  | Positive, trustworthy feedback color                                   |
-| **Error**              | Rose       | `#DC2626` | `--color-bridge-error`    | Clean red tone for validation errors or warnings                       |
+| **Text Secondary**     | Slate      | `#4A5568` | `--color-bridge-text-secondary` | Used 
 
 ### Color Usage Guidelines
 - **Primary (Sky Blue)**: Use for all CTAs, interactive elements, and brand moments
@@ -290,7 +288,6 @@ Thoughtful dating that takes just minutes a day."
   - **Satoshi** (Headings & Brand) - Modern geometric sans-serif for all headings and wordmark
   - **Inter** (Body & UI) - Highly readable, optimized for screens for all body text and UI elements
   - See Typography section above for full details
-- **Logo**: Text-based "Bridge" wordmark using Satoshi font with Primary gradient (Light Sky → Sky Blue → Deep Sky)
 - **Spacing**: Consistent 8px grid system
 - **Border Radius**: Medium roundness (8-12px)
 
