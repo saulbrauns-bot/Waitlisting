@@ -79,7 +79,7 @@ export default function Hero() {
                 textShadow: '0 1px 3px rgba(74, 85, 104, 0.08), 0 2px 6px rgba(74, 85, 104, 0.05)'
               }}
             >
-              Daily curated matches shaped by real community insight.
+              Curated matches shaped by real community insight.
             </p>
 
             {/* Join Waitlist Button - Wider to match box with animated gradient swoop */}
