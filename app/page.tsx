@@ -3,6 +3,7 @@ import Hero from "@/app/components/hero/Hero";
 import WhyBridgeSection from "@/app/components/sections/WhyBridgeSection";
 import WaitlistSection from "@/app/components/sections/WaitlistSection";
 import ScrollToTop from "@/app/components/ScrollToTop";
+import SmsConsentModal from "@/app/components/footer/SmsConsentModal";
 import {
   FOOTER,
 } from "@/app/constants/landing-content";
@@ -60,6 +61,7 @@ export default function HomePage() {
               <p className="text-bridge-text-muted text-center text-sm sm:text-base">
                 {FOOTER.copyright}
               </p>
+              <SmsConsentModal />
             </div>
           </div>
         </footer>
