@@ -3,7 +3,6 @@ import Hero from "@/app/components/hero/Hero";
 import WhyBridgeSection from "@/app/components/sections/WhyBridgeSection";
 import WaitlistSection from "@/app/components/sections/WaitlistSection";
 import ScrollToTop from "@/app/components/ScrollToTop";
-import SmsConsentModal from "@/app/components/footer/SmsConsentModal";
 import {
   FOOTER,
 } from "@/app/constants/landing-content";
@@ -61,7 +60,13 @@ export default function HomePage() {
               <p className="text-bridge-text-muted text-center text-sm sm:text-base">
                 {FOOTER.copyright}
               </p>
-              <SmsConsentModal />
+              <p className="text-bridge-text-muted text-center text-xs sm:text-sm max-w-3xl leading-relaxed">
+                When creating an account in the Bridge mobile app, users enter their
+                phone number and tap "Continue" to request a verification code.
+                This action serves as explicit consent to receive a one-time SMS for
+                authentication. Messaging is used only for verification. Reply STOP to
+                opt out or HELP for assistance. Message and data rates may apply.
+              </p>
             </div>
           </div>
         </footer>
