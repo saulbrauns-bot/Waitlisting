@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
-  title: "Bridge - Dating for Busy Professionals | NYC",
+  title: "Bridge",
   description: "One curated match at a time. No swiping. No noise. Join the waitlist for thoughtful dating built for busy NYC professionals.",
 
   // OpenGraph metadata for social sharing
