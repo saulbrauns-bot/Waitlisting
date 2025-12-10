@@ -7,7 +7,7 @@ import { prefersReducedMotion } from "@/app/lib/animations";
 import { scrollToSection } from "@/app/lib/scroll-utils";
 
 const HERO_LINE_1 = "The community finds the fit.";
-const HERO_LINE_2 = "Bridge makes the match.";
+const HERO_LINE_2 = "We Bridge the gap.";
 
 export default function Hero() {
   // Initialize state based on reduced motion preference
