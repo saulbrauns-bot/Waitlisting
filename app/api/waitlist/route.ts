@@ -48,12 +48,13 @@ function buildInsertPayload(
   ip: string
 ) {
   return {
-    first_name: data.firstName,
-    last_name: data.lastName || '',
+    name: data.name,
     email: data.email,
-    phone: normalizedPhone || '',
-    location: 'NYC',
-    source: data.source || null,
+    student_email: data.studentEmail || null,
+    phone: normalizedPhone || null,
+    location: data.location || null,
+    interest_type: data.interestType,
+    source: null, // kept for backwards compatibility
     user_agent: userAgent,
     ip: ip !== 'unknown' ? ip : null,
     consent: true,
@@ -65,14 +66,12 @@ function buildInsertPayload(
  */
 async function handleDuplicateEntry(
   email: string,
-  normalizedPhone: string,
   correlationId: string
 ) {
   const { data: existingRecord, error } = await supabaseAdmin
     .from('waitlist_signups')
     .select('id, confirmed_at')
     .eq('email', email)
-    .eq('phone', normalizedPhone)
     .single();
 
   console.log('[waitlist_duplicate_entry]', {
@@ -100,7 +99,7 @@ async function insertWaitlistEntry(payload: ReturnType<typeof buildInsertPayload
   const { data: insertedData, error: insertError } = await supabaseAdmin
     .from('waitlist_signups')
     .insert(payload)
-    .select('id, email, first_name')
+    .select('id, email, name')
     .single();
 
   return { insertedData, insertError };
@@ -148,7 +147,7 @@ export async function POST(request: NextRequest) {
     if (insertError) {
       // PostgreSQL unique violation error code: 23505
       if (insertError.code === '23505') {
-        return handleDuplicateEntry(data.email, normalizedPhone, correlationId);
+        return handleDuplicateEntry(data.email, correlationId);
       }
 
       // Other database errors
@@ -193,7 +192,7 @@ export async function POST(request: NextRequest) {
     // Send confirmation email (async, don't block response)
     sendWaitlistConfirmation(
       data.email,
-      data.firstName,
+      data.name,
       tokenPair.token,
       insertedData.id
     ).catch((error) => {

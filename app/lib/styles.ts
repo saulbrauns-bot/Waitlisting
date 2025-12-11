@@ -10,7 +10,7 @@ export const inputClasses =
 
 /**
  * Primary button classes with hover effects
- * Uses Sky Blue (#4A90E2) per CLAUDE.md for all CTAs and interactive elements
+ * Uses Bridge Blue (#027BCE) per CLAUDE.md for all CTAs and interactive elements
  */
 export const buttonPrimaryClasses =
   "font-body text-sm sm:text-base rounded-xl bg-bridge-blue text-white px-6 py-3 font-semibold shadow-md transition-all duration-300 ease-out hover:shadow-xl hover:shadow-bridge-blue/20 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-bridge-blue-light focus:ring-offset-2";

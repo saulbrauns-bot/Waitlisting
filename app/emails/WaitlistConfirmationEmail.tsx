@@ -17,8 +17,8 @@ interface WaitlistConfirmationEmailProps {
 }
 
 /**
- * Email template for waitlist confirmation
- * Sent immediately after signup to confirm joining the waitlist
+ * Email template for interest confirmation
+ * Sent immediately after signup to confirm interest in Bridge
  */
 export default function WaitlistConfirmationEmail({
   firstName = "there",
@@ -27,32 +27,32 @@ export default function WaitlistConfirmationEmail({
   return (
     <Html>
       <Head />
-      <Preview>You&apos;re on the Bridge waitlist! We&apos;ll email you when we launch in NYC.</Preview>
+      <Preview>Thanks for your interest in Bridge — the first community-driven dating experience.</Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header with Bridge branding */}
-          <Heading style={h1}>Welcome to Bridge</Heading>
+          <Heading style={h1}>Thanks for your interest!</Heading>
 
           <Text style={text}>Hi {firstName},</Text>
 
           <Text style={text}>
-            You&apos;re officially on the waitlist! 🎉
+            We&apos;re excited you&apos;re interested in Bridge — the first community-driven dating experience.
           </Text>
 
           <Text style={text}>
-            We&apos;re building something special for busy NYC professionals who want real connections
-            without the endless swiping. You&apos;ll be among the first to know when we launch.
+            We&apos;re building something different: one curated match at a time, shaped by real community insight.
+            No endless swiping. No noise. Just intentional connections.
           </Text>
 
-          {/* Early Member Benefit Reminder */}
+          {/* Beta Launch Info */}
           <Section style={benefitBox}>
-            <Heading style={h2}>Your Early Member Reward</Heading>
+            <Heading style={h2}>Beta Launching at Rice</Heading>
             <Text style={benefitText}>
-              <strong>12 months of Bridge at no cost</strong>
+              <strong>February 28th, 2025</strong>
             </Text>
             <Text style={text}>
-              As one of our first 2,500 members, you&apos;ll get a full year of Bridge for free.
-              We&apos;ll email you when it&apos;s time to claim your reward.
+              We&apos;re starting our beta at Rice University. If you&apos;re a Rice student,
+              stay tuned for more details as we get closer to launch.
             </Text>
           </Section>
 
@@ -60,11 +60,9 @@ export default function WaitlistConfirmationEmail({
           <Section style={section}>
             <Heading style={h3}>What&apos;s next?</Heading>
             <Text style={text}>
-              1. We&apos;ll email you when Bridge launches in NYC in 2026
-              <br />
-              2. You&apos;ll get early access to claim your 12-month reward
-              <br />
-              3. Start meeting other busy professionals who get it
+              We&apos;ll keep you updated on our progress and let you know when Bridge
+              is available in your area. In the meantime, feel free to share Bridge
+              with friends who might be interested.
             </Text>
           </Section>
 
@@ -73,11 +71,11 @@ export default function WaitlistConfirmationEmail({
             <Heading style={h3}>We&apos;d love to hear from you</Heading>
             <Text style={text}>
               We&apos;re building Bridge with real feedback from people like you. If you&apos;d be open to
-              chatting for <strong>15 minutes</strong> about your thoughts on dating apps, dating, and work-life
-              balance, we&apos;d be incredibly grateful.
+              a quick chat about your thoughts on dating apps and what you&apos;re looking for,
+              we&apos;d be incredibly grateful.
             </Text>
             <Text style={text}>
-              Just reply to this email and we&apos;ll find a time that works for you. No pressure at all!
+              Just reply to this email — no pressure at all!
             </Text>
           </Section>
 
@@ -90,8 +88,8 @@ export default function WaitlistConfirmationEmail({
           </Text>
 
           <Text style={smallText}>
-            You&apos;re receiving this because you joined the Bridge waitlist.
-            We&apos;ll only email you about your launch access and benefits.
+            You&apos;re receiving this because you expressed interest in Bridge.
+            We&apos;ll only send you important updates.
           </Text>
         </Container>
       </Body>
@@ -146,7 +144,7 @@ const text = {
 };
 
 const benefitText = {
-  color: "#4a90e2",
+  color: "#027BCE",
   fontSize: "18px",
   lineHeight: "1.6",
   margin: "0 0 12px",
@@ -166,7 +164,7 @@ const buttonSection = {
 };
 
 const button = {
-  backgroundColor: "#4a90e2",
+  backgroundColor: "#027BCE",
   borderRadius: "8px",
   color: "#ffffff",
   display: "inline-block",
@@ -187,7 +185,7 @@ const section = {
 
 const benefitBox = {
   backgroundColor: "#f0f7ff",
-  border: "2px solid #4a90e2",
+  border: "2px solid #027BCE",
   borderRadius: "12px",
   padding: "24px",
   margin: "24px 0",

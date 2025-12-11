@@ -5,28 +5,34 @@ import { z } from 'zod';
  * Used on both client and server for consistent validation
  */
 export const waitlistSchema = z.object({
-  firstName: z
+  name: z
     .string()
-    .min(1, 'First name is required')
-    .max(100, 'First name must be 100 characters or less')
+    .min(1, 'Name is required')
+    .max(200, 'Name must be 200 characters or less')
     .transform((val) => val.trim().replace(/\s+/g, ' ')),
-  lastName: z
-    .string()
-    .max(100, 'Last name must be 100 characters or less')
-    .transform((val) => val.trim().replace(/\s+/g, ' '))
-    .optional()
-    .or(z.literal('')),
   email: z
     .string()
     .email('Invalid email address')
     .transform((val) => val.trim().toLowerCase()),
+  studentEmail: z
+    .string()
+    .email('Invalid email address')
+    .transform((val) => val.trim().toLowerCase())
+    .optional()
+    .or(z.literal('')),
   phone: z
     .string()
     .transform((val) => val.trim())
     .optional()
     .or(z.literal('')),
-  source: z.enum(['email', 'friend', 'other'], {
-    message: 'Please let us know how you heard about us',
+  location: z
+    .string()
+    .max(200, 'Location must be 200 characters or less')
+    .transform((val) => val.trim())
+    .optional()
+    .or(z.literal('')),
+  interestType: z.enum(['user', 'investor', 'partner', 'follower'], {
+    message: 'Please select what best describes your interest',
   }),
 });
 

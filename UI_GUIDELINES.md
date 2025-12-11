@@ -63,7 +63,7 @@ This document defines the UI design standards and best practices for the Bridge 
 
 ## Color Scheme & Typography
 *(Refer to the Color Scheme document in CLAUDE.md)*
-- Primary color: `#4A90E2` (Sky Blue)
+- Primary color: `#027BCE` (Bridge Blue)
 - Accent color: `#EBD8B7` (Warm Sand)
 - Neutrals: `#F9FAFB`, `#F1F3F5`, `#1A1A1A`, etc.
 - Provide Dark Mode variants.

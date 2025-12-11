@@ -6,7 +6,6 @@ import BentoCard from "@/app/components/cards/BentoCard";
 import { WHY_BRIDGE_FEATURES, SECTIONS } from "@/app/constants/landing-content";
 import InlineIcon from "@/app/components/ui/InlineIcon";
 import { USERS_ICON_PATH } from "@/app/constants/icons";
-import NYCSkylineDecoration from "@/app/components/ui/NYCSkylineDecoration";
 import { ANIMATION_DELAYS } from "@/app/lib/animations";
 import { IMAGE_PATHS } from "@/app/constants/image-paths";
 
@@ -20,7 +19,7 @@ export default function WhyBridgeSection() {
     <>
       {/* Top gradient fade from Hero section */}
       <div
-        className="h-32 md:h-48"
+        className="h-16 md:h-24"
         style={{
           background:
             "linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 20%, var(--color-bridge-gradient-2) 100%)",
@@ -29,7 +28,7 @@ export default function WhyBridgeSection() {
 
       <section
         id={SECTIONS.WHY.id}
-        className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
+        className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
         style={{ backgroundColor: "var(--color-bridge-gradient-2)" }}
       >
         {/* Subtle side gradient fades for seamless integration - desktop only */}
@@ -48,10 +47,6 @@ export default function WhyBridgeSection() {
           }}
         />
 
-        {/* NYC Skyline Decoration with Parallax - hidden on mobile */}
-        <div className="hidden md:block">
-          <NYCSkylineDecoration />
-        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           {/* Two-column grid layout */}
@@ -62,27 +57,11 @@ export default function WhyBridgeSection() {
             </div>
 
             {/* Right Column: Bento Grid */}
-            <div className="grid grid-cols-2 md:grid-rows-[auto,minmax(0,1fr),minmax(0,1fr)] gap-2 sm:gap-3 md:gap-4 max-w-full">
-              {/* Built For Busy People - Full width top (Row 1) */}
-              <div className="col-span-2 self-start">
-                <BentoCard
-                  feature={WHY_BRIDGE_FEATURES[0]}
-                  variant="wide"
-                  shadowDirection="top"
-                  gradientDirection="bottom"
-                  animationDelay={ANIMATION_DELAYS.NORMAL}
-                  customDesc={
-                    <>
-                      Designed for people with full lives<br className="md:hidden" /> to meet others who get it.
-                    </>
-                  }
-                />
-              </div>
-
-              {/* Curated, Not Crowded - Left column (Row 2) */}
+            <div className="grid grid-cols-2 md:grid-rows-[minmax(0,1fr),minmax(0,1fr)] gap-2 sm:gap-3 md:gap-4 max-w-full">
+              {/* Curated, Not Crowded - Left column (Row 1) */}
               <div className="col-span-1 flex h-full">
                 <BentoCard
-                  feature={WHY_BRIDGE_FEATURES[1]}
+                  feature={WHY_BRIDGE_FEATURES[0]}
                   variant="standard"
                   shadowDirection="topRight"
                   gradientDirection="topRight"
@@ -90,10 +69,10 @@ export default function WhyBridgeSection() {
                 />
               </div>
 
-              {/* We Match Better Together - Right column (Rows 2–3) */}
+              {/* We Match Better Together - Right column (Rows 1–2) */}
               <div className="col-span-1 row-span-2 flex h-full min-w-0">
                 <BentoCard
-                  feature={WHY_BRIDGE_FEATURES[3]}
+                  feature={WHY_BRIDGE_FEATURES[2]}
                   variant="tall"
                   shadowDirection="right"
                   gradientDirection="left"
@@ -105,10 +84,10 @@ export default function WhyBridgeSection() {
                 </BentoCard>
               </div>
 
-              {/* Five Minutes A Day - Left column (Row 3) */}
+              {/* Five Minutes A Day - Left column (Row 2) */}
               <div className="col-span-1 flex h-full">
                 <BentoCard
-                  feature={WHY_BRIDGE_FEATURES[2]}
+                  feature={WHY_BRIDGE_FEATURES[1]}
                   variant="standard"
                   shadowDirection="bottomLeft"
                   gradientDirection="topRight"
@@ -142,10 +121,7 @@ function SectionHeader() {
       </h2>
       <div className="md:opacity-0 md:animate-[fadeIn_0.6s_ease-out_0.2s_forwards]">
         <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed">
-          The dating experience designed for people with purpose.
-        </p>
-        <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mt-2">
-          Launching in <span className="text-bridge-blue">New York City</span> in 2026.
+          Beta launching at <span className="text-bridge-blue font-medium">Rice</span> February 28th.
         </p>
       </div>
     </div>
@@ -175,7 +151,7 @@ function CommunityMatchContent() {
 function GradientTransition() {
   return (
     <div
-      className="h-32 md:h-48"
+      className="h-16 md:h-24"
       style={{
         background:
           "linear-gradient(to bottom, var(--color-bridge-gradient-2) 0%, var(--color-bridge-gradient-2) 20%, var(--color-bridge-gradient-3) 100%)",

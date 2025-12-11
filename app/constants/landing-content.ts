@@ -17,16 +17,11 @@ export interface NavLink {
 // Navigation links
 export const NAV_LINKS: NavLink[] = [
   { href: "#why", label: "Why Bridge" },
-  { href: "#waitlist", label: "Join Waitlist" },
+  { href: "#waitlist", label: "Get Started" },
 ];
 
 // Why Bridge features
 export const WHY_BRIDGE_FEATURES: FeatureItem[] = [
-  {
-    icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    title: "Built For Busy People",
-    desc: "Designed for people with full lives to meet others who get it.",
-  },
   {
     icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
     title: "Curated,\nNot Crowded",
@@ -53,15 +48,15 @@ export const SECTIONS = {
   },
   WAITLIST: {
     id: "waitlist",
-    title: "Join the waitlist",
-    description: "Be among the first to experience thoughtful online dating in NYC.",
+    title: "Express Your Interest",
+    description: "Be among the first to experience intentional dating.",
   },
 } as const;
 
 // Footer content
 export const FOOTER = {
   brandName: "Bridge",
-  copyright: "© 2025 Bridge. Intentional Dating for Busy People.",
+  copyright: "© 2025 Bridge. The first community-driven dating experience.",
 } as const;
 
 // FAQ Section
@@ -73,27 +68,19 @@ export interface FAQItem {
 export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "When does Bridge launch?",
-    answer: "Bridge opens to early members on March 1, 2025. Waitlist members will receive early access invites based on their signup order.",
-  },
-  {
-    question: "How much does Bridge cost?",
-    answer: "After your free year, Bridge is $19/month. Early members keep their 1 year free benefit—that's $228 in value.",
+    answer: "Bridge is launching in phases starting with college campuses. Express your interest to be notified when we're available in your area.",
   },
   {
     question: "How does matching work?",
-    answer: "Every Sunday at 9 AM, you'll receive one thoughtfully curated match based on compatibility, preferences, and community validation. You have 3 days to connect before the next match.",
+    answer: "You'll receive one thoughtfully curated match at a time based on compatibility, preferences, and community validation. Quality over quantity.",
   },
   {
     question: "Who is Bridge for?",
-    answer: "Bridge is designed for busy NYC professionals aged 22-30 in finance, consulting, medicine, law, and tech who value intentional dating over endless swiping.",
+    answer: "Bridge is designed for busy people who value intentional dating over endless swiping. We're starting with college students and young professionals.",
   },
   {
     question: "What makes Bridge different?",
-    answer: "Unlike other apps, Bridge delivers one quality match per week—not endless profiles. We combine algorithmic matching with community insight for better compatibility.",
-  },
-  {
-    question: "Is there a refund policy?",
-    answer: "Your first year is completely free. After that, you can cancel anytime with no penalty. We're confident you'll love the Bridge experience.",
+    answer: "Unlike other apps, Bridge delivers one quality match at a time—not endless profiles. We combine algorithmic matching with community insight for better compatibility.",
   },
 ];
 

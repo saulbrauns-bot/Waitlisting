@@ -34,17 +34,19 @@ function generateCorrelationId(): string {
  * Send waitlist confirmation email
  *
  * @param to - Recipient email address
- * @param firstName - User's first name (optional)
+ * @param name - User's name (optional, will extract first name for greeting)
  * @param confirmationToken - Secure confirmation token for single-use verification
  * @param recordId - Database record ID for logging
  * @returns Promise with email send result
  */
 export async function sendWaitlistConfirmation(
   to: string,
-  firstName?: string,
+  name?: string,
   confirmationToken?: string,
   recordId?: string
 ): Promise<{ success: boolean; error?: string; correlationId: string }> {
+  // Extract first name from full name for personalized greeting
+  const firstName = name ? name.split(' ')[0] : undefined;
   const correlationId = generateCorrelationId();
 
   console.log('[waitlist_email_send_start]', {
@@ -80,7 +82,7 @@ export async function sendWaitlistConfirmation(
       from: `Bridge <${fromEmail}>`,
       replyTo: replyTo,
       to: [to],
-      subject: "You're on the Bridge waitlist!",
+      subject: "Thanks for your interest in Bridge",
       react: WaitlistConfirmationEmail({ firstName, confirmUrl }),
     });
 

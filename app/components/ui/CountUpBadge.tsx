@@ -72,10 +72,10 @@ export default function CountUpBadge() {
             end={1000}
             duration={2.2}
             separator=","
-            suffix="+ early members already joined"
+            suffix="+ others interested in Bridge"
           />
         ) : (
-          "0+ early members already joined"
+          "0+ others interested in Bridge"
         )}
       </span>
 

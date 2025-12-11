@@ -14,23 +14,28 @@ import {
 } from "@/components/ui/select";
 import CountUpBadge from "@/app/components/ui/CountUpBadge";
 import { generateRefCode } from "@/app/lib/refcode";
+import {
+  INTEREST_TYPE_OPTIONS,
+  INTEREST_TYPE_LABEL,
+  FORM_PLACEHOLDERS,
+} from "@/app/constants/form-config";
 
 type FormState = {
-  firstName: string;
-  lastName?: string;
+  name: string;
   email: string;
   phone?: string;
-  source: string;
+  location?: string;
+  interestType: string;
 };
 
 export default function WaitlistSection() {
   const router = useRouter();
   const [form, setForm] = React.useState<FormState>({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     phone: "",
-    source: "",
+    location: "",
+    interestType: "",
   });
   const [touched, setTouched] = React.useState<Record<string, boolean>>({});
   const [loading, setLoading] = React.useState(false);
@@ -39,9 +44,11 @@ export default function WaitlistSection() {
     () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()),
     [form.email]
   );
-  const firstNameValid = form.firstName.trim().length > 1;
-  const sourceValid = ['email', 'friend', 'other'].includes(form.source);
-  const isValid = firstNameValid && emailValid && sourceValid;
+  const nameValid = form.name.trim().length > 1;
+  const interestTypeValid = ["user", "investor", "partner", "follower"].includes(
+    form.interestType
+  );
+  const isValid = nameValid && emailValid && interestTypeValid;
 
   function onBlur(field: string) {
     setTouched((p) => ({ ...p, [field]: true }));
@@ -52,50 +59,50 @@ export default function WaitlistSection() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setTouched({ firstName: true, email: true, source: true });
+    setTouched({ name: true, email: true, interestType: true });
     if (!isValid) return;
     setLoading(true);
 
     try {
-      // Call backend API
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName: form.firstName.trim(),
-          lastName: form.lastName?.trim() || "",
+          name: form.name.trim(),
           email: form.email.trim(),
           phone: form.phone?.trim() || "",
-          source: form.source,
+          location: form.location?.trim() || "",
+          interestType: form.interestType,
         }),
       });
 
       const result = await response.json();
 
-      // Check for duplicate FIRST
       if (result.ok === true && result.duplicate === true) {
-        // Show duplicate message inline
-        alert("You're already on the waitlist! We'll email you when we launch.");
+        alert("You're already on the list! We'll be in touch.");
         setLoading(false);
         return;
       }
 
-      // Success - redirect to confirmation
       if (result.ok === true && result.id) {
-        // Generate refCode for confirmation page
-        const refCode = generateRefCode(form.firstName);
+        const refCode = generateRefCode(form.name);
+        const primaryEmail = form.email.trim().toLowerCase();
+        const isRiceEmail = primaryEmail.endsWith("@rice.edu");
 
         const params = new URLSearchParams({
-          firstName: form.firstName,
+          name: form.name,
           email: form.email,
           refCode: refCode,
         });
 
-        router.push(`/confirmation?${params.toString()}`);
+        if (isRiceEmail) {
+          router.push(`/confirmation/rice?${params.toString()}`);
+        } else {
+          router.push(`/confirmation/general?${params.toString()}`);
+        }
         return;
       }
 
-      // Handle validation errors or other failures
       if (result.ok === false) {
         alert(result.message || "Something went wrong. Please try again.");
         setLoading(false);
@@ -108,16 +115,16 @@ export default function WaitlistSection() {
   }
 
   return (
-    <section id="waitlist" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-bridge-bg">
+    <section id="waitlist" className="py-12 sm:py-14 md:py-16 lg:py-20 bg-bridge-bg">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-bridge-text mb-4 sm:mb-6">
-          Join the <span className="text-bridge-blue">NYC</span> Waitlist
+          Express Your <span className="text-bridge-blue">Interest</span>
         </h2>
         <p className="text-bridge-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-2">
-          Be among the first to experience thoughtful online dating in <span className="text-bridge-blue">NYC</span>. Early members get <span className="font-medium text-bridge-blue">12 months of Bridge free</span>.
+          Whether you want to use Bridge, invest, partner, or just stay updated.
         </p>
 
-        {/* CountUp badge with confetti */}
+        {/* CountUp badge */}
         <div className="mt-4 sm:mt-6 flex justify-center">
           <CountUpBadge />
         </div>
@@ -127,51 +134,33 @@ export default function WaitlistSection() {
           <form noValidate onSubmit={onSubmit} className="p-4 sm:p-6 md:p-8 text-left">
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* First name (required) */}
+              {/* Name (required) */}
               <div>
-                <Label htmlFor="firstName">First name*</Label>
+                <Label htmlFor="name">Name*</Label>
                 <Input
-                  id="firstName"
-                  name="firstName"
+                  id="name"
+                  name="name"
                   type="text"
-                  autoComplete="given-name"
-                  value={form.firstName}
-                  onChange={(e) => update("firstName", e.target.value)}
-                  onBlur={() => onBlur("firstName")}
-                  aria-invalid={touched.firstName && !firstNameValid}
-                  aria-describedby="firstNameHelp"
-                  placeholder="John"
+                  autoComplete="name"
+                  value={form.name}
+                  onChange={(e) => update("name", e.target.value)}
+                  onBlur={() => onBlur("name")}
+                  aria-invalid={touched.name && !nameValid}
+                  aria-describedby="nameHelp"
+                  placeholder={FORM_PLACEHOLDERS.NAME}
                   className="mt-1"
                   required
                 />
-                <p id="firstNameHelp" className="mt-1 text-xs text-bridge-text-muted">
-                  Required
-                </p>
-                {touched.firstName && !firstNameValid && (
+                {touched.name && !nameValid && (
                   <p role="alert" className="mt-1 text-xs text-red-600">
-                    Enter your first name
+                    Enter your name
                   </p>
                 )}
               </div>
 
-              {/* Last name (optional) */}
-              <div>
-                <Label htmlFor="lastName">Last name (optional)</Label>
-                <Input
-                  id="lastName"
-                  name="lastName"
-                  type="text"
-                  autoComplete="family-name"
-                  value={form.lastName}
-                  onChange={(e) => update("lastName", e.target.value)}
-                  placeholder="Doe"
-                  className="mt-1"
-                />
-              </div>
-
               {/* Email (required) */}
               <div>
-                <Label htmlFor="email">Personal Email*</Label>
+                <Label htmlFor="email">Email*</Label>
                 <Input
                   id="email"
                   name="email"
@@ -182,12 +171,12 @@ export default function WaitlistSection() {
                   onBlur={() => onBlur("email")}
                   aria-invalid={touched.email && !emailValid}
                   aria-describedby="emailHelp"
-                  placeholder="john@gmail.com"
+                  placeholder={FORM_PLACEHOLDERS.EMAIL}
                   className="mt-1"
                   required
                 />
                 <p id="emailHelp" className="mt-1 text-xs text-bridge-text-muted">
-                  We&apos;ll notify you when Bridge launches. No spam, ever.
+                  Use your student email (.edu) if you have one.
                 </p>
                 {touched.email && !emailValid && (
                   <p role="alert" className="mt-1 text-xs text-red-600">
@@ -196,9 +185,9 @@ export default function WaitlistSection() {
                 )}
               </div>
 
-              {/* Phone (recommended) */}
+              {/* Phone */}
               <div>
-                <Label htmlFor="phone">Phone (recommended)</Label>
+                <Label htmlFor="phone">Phone</Label>
                 <Input
                   id="phone"
                   name="phone"
@@ -207,48 +196,62 @@ export default function WaitlistSection() {
                   autoComplete="tel"
                   value={form.phone}
                   onChange={(e) => update("phone", e.target.value)}
-                  placeholder="(555) 123-4567"
+                  placeholder={FORM_PLACEHOLDERS.PHONE}
                   className="mt-1"
                 />
-                <p className="mt-1 text-xs text-bridge-text-muted">
-                  Enter your number for faster access to your reward.
-                </p>
               </div>
 
+              {/* Location */}
+              <div>
+                <Label htmlFor="location">Location</Label>
+                <Input
+                  id="location"
+                  name="location"
+                  type="text"
+                  autoComplete="address-level2"
+                  value={form.location}
+                  onChange={(e) => update("location", e.target.value)}
+                  placeholder={FORM_PLACEHOLDERS.LOCATION}
+                  className="mt-1"
+                />
+              </div>
             </div>
 
-            {/* Source dropdown (required) - centered */}
+            {/* Interest type dropdown (required) - centered */}
             <div className="mt-6 flex justify-center">
               <div className="w-full max-w-md">
-                <Label htmlFor="source" className="text-center block">How did you hear about us?*</Label>
+                <Label htmlFor="interestType" className="text-center block">
+                  {INTEREST_TYPE_LABEL}*
+                </Label>
                 <Select
-                  value={form.source}
-                  onValueChange={(value) => update("source", value)}
+                  value={form.interestType}
+                  onValueChange={(value) => update("interestType", value)}
                 >
                   <SelectTrigger
-                    id="source"
+                    id="interestType"
                     className={`mt-1 w-full ${
-                      touched.source && !sourceValid
+                      touched.interestType && !interestTypeValid
                         ? "border-red-600 aria-invalid:border-red-600"
                         : ""
                     }`}
-                    aria-invalid={touched.source && !sourceValid}
-                    aria-describedby="sourceHelp"
+                    aria-invalid={touched.interestType && !interestTypeValid}
+                    aria-describedby="interestTypeHelp"
                   >
-                    <SelectValue placeholder="Select an option" />
+                    <SelectValue placeholder="Select your interest" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="email">Email</SelectItem>
-                    <SelectItem value="friend">Friend</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    {INTEREST_TYPE_OPTIONS.filter((opt) => opt.value !== "").map(
+                      (option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      )
+                    )}
                   </SelectContent>
                 </Select>
-                <p id="sourceHelp" className="mt-1 text-xs text-bridge-text-muted text-center">
-                  Required
-                </p>
-                {touched.source && !sourceValid && (
+                {touched.interestType && !interestTypeValid && (
                   <p role="alert" className="mt-1 text-xs text-red-600 text-center">
-                    Please select how you heard about us
+                    Please select what best describes your interest
                   </p>
                 )}
               </div>
@@ -260,21 +263,13 @@ export default function WaitlistSection() {
                 type="submit"
                 disabled={!isValid || loading}
                 className={`w-full rounded-2xl h-12 text-sm sm:text-base relative overflow-hidden ${
-                  isValid && !loading ? 'shimmer-button' : ''
+                  isValid && !loading ? "shimmer-button" : ""
                 }`}
                 aria-live="polite"
               >
-                {loading ? "Joining…" : (
-                  <>
-                    <span className="hidden sm:inline">Join 1,000+ New Yorkers waiting for Bridge</span>
-                    <span className="sm:hidden">Join 1,000+ early members</span>
-                  </>
-                )}
+                {loading ? "Joining..." : "Join the list"}
               </Button>
               <p className="mt-3 text-xs text-bridge-text-muted text-center">
-                Only 2,500 spots.
-              </p>
-              <p className="mt-2 text-xs text-bridge-text-muted text-center">
                 No spam. We never sell your data.
               </p>
             </div>

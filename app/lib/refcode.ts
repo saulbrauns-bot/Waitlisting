@@ -7,7 +7,10 @@
  * Format: FIRSTNAME + random 4-digit number
  * Example: SARAH2847
  */
-export function generateRefCode(firstName: string): string {
+export function generateRefCode(name: string): string {
+  // Extract first name from full name
+  const firstName = name.split(' ')[0] || name;
+
   const cleanName = firstName
     .trim()
     .toUpperCase()

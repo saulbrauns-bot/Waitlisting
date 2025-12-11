@@ -50,10 +50,7 @@ export default function HomePage() {
                   alt="Bridge"
                   fill
                   className="object-contain"
-                  style={{
-                    filter: 'brightness(1.2) contrast(1.1)',
-                    mixBlendMode: 'darken'
-                  }}
+                  style={{ mixBlendMode: 'multiply' }}
                   priority={false}
                 />
               </div>

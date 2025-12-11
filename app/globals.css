@@ -46,9 +46,9 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* Bridge Brand Colors */
-  --color-bridge-primary: #4A90E2;
+  --color-bridge-primary: #027BCE;
   --color-bridge-primary-light: #B3D4FF;
-  --color-bridge-primary-dark: #1E6BD6;
+  --color-bridge-primary-dark: #025a96;
   --color-bridge-accent: #EBD8B7;
   --color-bridge-neutral-bg: #F9FAFB;
   --color-bridge-text-primary: #1A1A1A;
@@ -59,7 +59,7 @@
   /* Tailwind-compatible aliases for CLAUDE.md spec colors */
   --color-bridge-surface: #F1F3F5; /* Mist Gray - for cards, modals, elevated containers */
   --color-bridge-border: #D6D9DE; /* Cloud Gray - for borders */
-  --color-bridge-blue: #4A90E2; /* Sky Blue - primary brand color */
+  --color-bridge-blue: #027BCE; /* Bridge Blue - primary brand color */
   --color-bridge-blue-light: #B3D4FF; /* Light Sky - hover, focus states */
   --color-bridge-text: #1A1A1A; /* Charcoal - primary text */
   --color-bridge-text-muted: #4A5568; /* Slate - secondary text */
@@ -88,7 +88,7 @@
   --card-foreground: #1A1A1A;
   --popover: #FFFFFF;
   --popover-foreground: #1A1A1A;
-  --primary: #4A90E2; /* Bridge Sky Blue */
+  --primary: #027BCE; /* Bridge Blue */
   --primary-foreground: #FFFFFF;
   --secondary: #F1F3F5; /* Bridge Mist Gray */
   --secondary-foreground: #1A1A1A;
@@ -99,20 +99,20 @@
   --destructive: #DC2626; /* Bridge Rose */
   --border: #D6D9DE; /* Bridge Cloud Gray */
   --input: #D6D9DE;
-  --ring: #4A90E2;
-  --chart-1: #4A90E2;
+  --ring: #027BCE;
+  --chart-1: #027BCE;
   --chart-2: #B3D4FF;
   --chart-3: #EBD8B7;
   --chart-4: #16A34A;
   --chart-5: #1E6BD6;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #1A1A1A;
-  --sidebar-primary: #4A90E2;
+  --sidebar-primary: #027BCE;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #F1F3F5;
   --sidebar-accent-foreground: #1A1A1A;
   --sidebar-border: #D6D9DE;
-  --sidebar-ring: #4A90E2;
+  --sidebar-ring: #027BCE;
 }
 
 .dark {

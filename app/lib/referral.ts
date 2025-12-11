@@ -25,7 +25,7 @@ export function generateReferralLink({ refCode }: ReferralLinkParams): string {
  */
 export function generateSMSMessage(refCode?: string): string {
   const link = generateReferralLink({ refCode });
-  return `I just joined Bridge — a new dating app designed for busy NYC professionals. Thought you might like it: ${link}`;
+  return `I just signed up for Bridge — a new dating app focused on intentional matching. Thought you might be interested: ${link}`;
 }
 
 /**
@@ -37,15 +37,15 @@ export function generateEmailParams(refCode?: string): {
 } {
   const link = generateReferralLink({ refCode });
   return {
-    subject: "Join Bridge with me",
+    subject: "Check out Bridge",
     body: `Hey,
 
-I just joined Bridge — a new dating app designed for busy professionals in NYC. Instead of endless swiping, you get one curated match at a time.
+I just signed up for Bridge — a new dating app focused on intentional matching. Instead of endless swiping, you get one curated match at a time.
 
-I thought you might like it:
+I thought you might be interested:
 ${link}
 
-Looking forward to seeing you on there!`,
+Hope to see you on there!`,
   };
 }
 

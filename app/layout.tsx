@@ -6,13 +6,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
-  title: "Bridge",
-  description: "One curated match at a time. No swiping. No noise. Join the waitlist for thoughtful dating built for busy NYC professionals.",
+  title: "Bridge - Intentional Dating",
+  description: "One curated match at a time. No swiping. No noise. Dating designed for people who value their time.",
 
   // OpenGraph metadata for social sharing
   openGraph: {
-    title: "Bridge - Dating for Busy Professionals",
-    description: "One curated match at a time. Join the waitlist for thoughtful dating in NYC.",
+    title: "Bridge - Intentional Dating",
+    description: "One curated match at a time. Dating designed for people who value their time.",
     url: process.env.NEXT_PUBLIC_BASE_URL || "https://bridge.app",
     siteName: "Bridge",
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bridge - Thoughtful Dating for Busy Professionals"
+        alt: "Bridge - Intentional Dating"
       }
     ],
     locale: "en_US",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   // Twitter Card metadata
   twitter: {
     card: "summary_large_image",
-    title: "Bridge - Dating for Busy Professionals",
-    description: "One curated match at a time. Join the waitlist for thoughtful dating in NYC.",
+    title: "Bridge - Intentional Dating",
+    description: "One curated match at a time. Dating designed for people who value their time.",
     images: ["/og-image.png"],
   },
 

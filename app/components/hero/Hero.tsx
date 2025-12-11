@@ -29,7 +29,7 @@ export default function Hero() {
       {/* Wavy Background Effect - Simplified for mobile */}
       <WavyBackground
         containerClassName="absolute inset-0"
-        colors={["#4A90E2", "#B3D4FF", "#1E6BD6"]}
+        colors={["#027BCE", "#B3D4FF", "#025a96"]}
         waveWidth={70}
         backgroundFill="#FEFEFE"
         blur={10}
@@ -113,7 +113,7 @@ export default function Hero() {
                 ></span>
 
                 {/* Button text */}
-                <span className="relative z-10">Join Waitlist</span>
+                <span className="relative z-10">Get Started</span>
               </a>
             </div>
           </div>
