@@ -58,11 +58,7 @@ export default function HomePage() {
                 {FOOTER.copyright}
               </p>
               <p className="text-bridge-text-muted text-center text-xs sm:text-sm max-w-3xl leading-relaxed">
-                When creating an account in the Bridge mobile app, users enter their
-                phone number and tap "Continue" to request a verification code.
-                This action serves as explicit consent to receive a one-time SMS for
-                authentication. Messaging is used only for verification. Reply STOP to
-                opt out or HELP for assistance. Message and data rates may apply.
+                By entering your phone number and tapping "Continue," you give Bridge permission to send you SMS text messages for verification purposes. You will receive a one-time code to authenticate your account. No promotional or marketing messages will be sent. Message and data rates may apply. Reply STOP to opt out or HELP for support.
               </p>
             </div>
           </div>
