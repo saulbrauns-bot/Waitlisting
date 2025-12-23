@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -26,6 +27,7 @@ type FormState = {
   phone?: string;
   location?: string;
   interestType: string;
+  smsConsent: boolean;
 };
 
 export default function WaitlistSection() {
@@ -36,6 +38,7 @@ export default function WaitlistSection() {
     phone: "",
     location: "",
     interestType: "",
+    smsConsent: false,
   });
   const [touched, setTouched] = React.useState<Record<string, boolean>>({});
   const [loading, setLoading] = React.useState(false);
@@ -48,7 +51,9 @@ export default function WaitlistSection() {
   const interestTypeValid = ["user", "investor", "partner", "follower"].includes(
     form.interestType
   );
-  const isValid = nameValid && emailValid && interestTypeValid;
+  const hasPhone = (form.phone?.trim() || "").length > 0;
+  const smsConsentValid = !hasPhone || form.smsConsent;
+  const isValid = nameValid && emailValid && interestTypeValid && smsConsentValid;
 
   function onBlur(field: string) {
     setTouched((p) => ({ ...p, [field]: true }));
@@ -59,7 +64,7 @@ export default function WaitlistSection() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setTouched({ name: true, email: true, interestType: true });
+    setTouched({ name: true, email: true, interestType: true, smsConsent: true });
     if (!isValid) return;
     setLoading(true);
 
@@ -199,6 +204,33 @@ export default function WaitlistSection() {
                   placeholder={FORM_PLACEHOLDERS.PHONE}
                   className="mt-1"
                 />
+                <div className="mt-3 flex items-start gap-2">
+                  <Checkbox
+                    id="smsConsent"
+                    checked={form.smsConsent}
+                    onCheckedChange={(checked) => {
+                      update("smsConsent", checked === true);
+                      setTouched((p) => ({ ...p, smsConsent: true }));
+                    }}
+                    aria-invalid={touched.smsConsent && !smsConsentValid}
+                    className={
+                      touched.smsConsent && !smsConsentValid
+                        ? "border-red-600"
+                        : ""
+                    }
+                  />
+                  <label
+                    htmlFor="smsConsent"
+                    className="text-xs text-bridge-text-secondary leading-relaxed cursor-pointer select-none"
+                  >
+                    I agree to receive SMS/text messages from Bridge for one-time verification codes if I download the app. Messages will never include marketing or promotions.
+                  </label>
+                </div>
+                {hasPhone && touched.smsConsent && !smsConsentValid && (
+                  <p role="alert" className="mt-1 text-xs text-red-600">
+                    Please consent to receive SMS verification codes
+                  </p>
+                )}
               </div>
 
               {/* Location */}

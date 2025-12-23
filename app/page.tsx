@@ -58,7 +58,7 @@ export default function HomePage() {
                 {FOOTER.copyright}
               </p>
               <p className="text-bridge-text-muted text-center text-xs sm:text-sm max-w-3xl leading-relaxed">
-                By entering your phone number and tapping "Continue," you give Bridge permission to send you SMS text messages for verification purposes. You will receive a one-time code to authenticate your account. No promotional or marketing messages will be sent. Message and data rates may apply. Reply STOP to opt out or HELP for support.
+                When you download the Bridge mobile app and create an account, you agree to receive SMS text messages for one-time verification codes to authenticate your account. No promotional or marketing messages will be sent. Message and data rates may apply. Reply STOP to opt out or HELP for support.
               </p>
             </div>
           </div>
