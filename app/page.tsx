@@ -46,7 +46,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-4 sm:gap-6">
               <div className="relative h-12 w-48 sm:h-16 sm:w-64">
                 <Image
-                  src="/images/BridgeLogo.png"
+                  src="/images/BridgeLogo-Photoroom.png"
                   alt="Bridge"
                   fill
                   className="object-contain"

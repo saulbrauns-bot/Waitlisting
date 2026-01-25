@@ -27,7 +27,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <div className="relative h-10 w-36 sm:h-12 sm:w-48 -ml-1 sm:-ml-2">
             <Image
-              src="/images/BridgeLogo.png"
+              src="/images/BridgeLogo-Photoroom.png"
               alt="Bridge"
               fill
               className="object-contain object-left"
