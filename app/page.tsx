@@ -44,16 +44,14 @@ export default function HomePage() {
         >
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col items-center gap-4 sm:gap-6">
-              <div className="relative h-16 w-64 sm:h-20 sm:w-80">
-                <Image
-                  src="/images/BridgeLogo-Photoroom.png"
-                  alt="Bridge"
-                  fill
-                  className="object-contain"
-                  style={{ mixBlendMode: 'multiply' }}
-                  priority={false}
-                />
-              </div>
+              <Image
+                src="/images/BridgeLogo-Photoroom.png"
+                alt="Bridge"
+                width={180}
+                height={180}
+                className="object-contain mx-auto"
+                priority={false}
+              />
               <p className="text-bridge-text-muted text-center text-sm sm:text-base">
                 {FOOTER.copyright}
               </p>

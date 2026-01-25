@@ -25,15 +25,13 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <div className="relative h-14 w-56 sm:h-16 sm:w-64 -ml-1 sm:-ml-2">
+          <div className="relative h-16 w-40 sm:h-20 sm:w-48">
             <Image
               src="/images/BridgeLogo-Photoroom.png"
               alt="Bridge"
-              fill
-              className="object-contain object-left"
-              style={{
-                mixBlendMode: 'multiply'
-              }}
+              width={200}
+              height={200}
+              className="object-contain"
               priority
             />
           </div>
