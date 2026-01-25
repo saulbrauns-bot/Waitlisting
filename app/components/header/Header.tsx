@@ -25,16 +25,14 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <div className="relative h-16 w-40 sm:h-20 sm:w-48">
-            <Image
-              src="/images/BridgeLogo-Photoroom.png"
-              alt="Bridge"
-              width={200}
-              height={200}
-              className="object-contain"
-              priority
-            />
-          </div>
+          <Image
+            src="/images/BridgeLogo-Photoroom.png"
+            alt="Bridge"
+            width={600}
+            height={600}
+            className="object-contain w-auto h-16 sm:h-20 md:h-24"
+            priority
+          />
 
           {/* Navigation buttons */}
           <nav className="hidden md:flex items-center gap-2">
