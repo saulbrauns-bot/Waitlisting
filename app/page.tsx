@@ -45,11 +45,11 @@ export default function HomePage() {
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col items-center gap-4 sm:gap-6">
               <Image
-                src="/images/BridgeLogo-Photoroom.png"
+                src="/images/bridgelogo-photoroom.png"
                 alt="Bridge"
                 width={942}
                 height={248}
-                className="mx-auto h-12 w-auto sm:h-16"
+                className="mx-auto h-20 w-auto sm:h-24"
                 priority={false}
               />
               <p className="text-bridge-text-muted text-center text-sm sm:text-base">

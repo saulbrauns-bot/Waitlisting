@@ -26,11 +26,11 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <Image
-            src="/images/BridgeLogo-Photoroom.png"
+            src="/images/bridgelogo-photoroom.png"
             alt="Bridge"
             width={942}
             height={248}
-            className="h-10 w-auto sm:h-12 md:h-14"
+            className="h-16 w-auto sm:h-20 md:h-24"
             priority
           />
 
