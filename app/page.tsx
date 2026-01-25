@@ -44,7 +44,7 @@ export default function HomePage() {
         >
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col items-center gap-4 sm:gap-6">
-              <div className="relative h-12 w-48 sm:h-16 sm:w-64">
+              <div className="relative h-16 w-64 sm:h-20 sm:w-80">
                 <Image
                   src="/images/BridgeLogo-Photoroom.png"
                   alt="Bridge"

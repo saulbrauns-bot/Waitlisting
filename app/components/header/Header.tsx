@@ -25,7 +25,7 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <div className="relative h-10 w-36 sm:h-12 sm:w-48 -ml-1 sm:-ml-2">
+          <div className="relative h-14 w-56 sm:h-16 sm:w-64 -ml-1 sm:-ml-2">
             <Image
               src="/images/BridgeLogo-Photoroom.png"
               alt="Bridge"
