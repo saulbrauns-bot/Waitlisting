@@ -30,7 +30,7 @@ export default function Header() {
             alt="Bridge"
             width={942}
             height={248}
-            className="h-16 w-auto sm:h-20 md:h-24"
+            className="h-8 w-auto sm:h-10 md:h-12"
             priority
           />
 

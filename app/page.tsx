@@ -49,7 +49,7 @@ export default function HomePage() {
                 alt="Bridge"
                 width={942}
                 height={248}
-                className="mx-auto h-20 w-auto sm:h-24"
+                className="mx-auto h-12 w-auto sm:h-16"
                 priority={false}
               />
               <p className="text-bridge-text-muted text-center text-sm sm:text-base">
