@@ -47,9 +47,9 @@ export default function HomePage() {
               <Image
                 src="/images/BridgeLogo-Photoroom.png"
                 alt="Bridge"
-                width={600}
-                height={600}
-                className="object-contain mx-auto w-auto h-24 sm:h-32"
+                width={942}
+                height={248}
+                className="mx-auto h-12 w-auto sm:h-16"
                 priority={false}
               />
               <p className="text-bridge-text-muted text-center text-sm sm:text-base">

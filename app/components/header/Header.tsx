@@ -28,9 +28,9 @@ export default function Header() {
           <Image
             src="/images/BridgeLogo-Photoroom.png"
             alt="Bridge"
-            width={600}
-            height={600}
-            className="object-contain w-auto h-16 sm:h-20 md:h-24"
+            width={942}
+            height={248}
+            className="h-10 w-auto sm:h-12 md:h-14"
             priority
           />
 
